@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — NxtStepEdu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EE;
+  --cream2:#F0EDE5;
+  --green:#9FE870;
+  --green-dark:#5CB832;
+  --green-pale:#E8F5E0;
+  --ink:#1A2A1A;
+  --slate:#4A5568;
+  --muted:#8896A5;
+  --white:#FAF8F3;
+  --border:#E2DDD4;
+  --border2:#C8E8B0;
+  --radius:18px;
+  --radius-sm:10px;
+  --shadow:0 2px 20px rgba(26,42,26,.07);
+  --shadow-md:0 8px 40px rgba(26,42,26,.1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--green-dark);border-radius:3px}
+.d{font-family:"Plus Jakarta Sans",sans-serif}
+button{cursor:pointer;font-family:"Inter",sans-serif}
+a{text-decoration:none;color:inherit}
+
+/* NAV (shared) */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 40px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(247,244,238,.45);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 16px rgba(26,42,26,.04);
+}
+.logo{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:1.35rem;font-weight:800;
+  display:flex;align-items:center;gap:10px;
+  color:var(--ink);
+}
+.logo-mark{
+  width:36px;height:36px;
+  background:var(--green);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  box-shadow:0 4px 12px rgba(159,232,112,.4);
+  transition:transform .2s;
+}
+.logo:hover .logo-mark{transform:rotate(-6deg) scale(1.05)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  color:var(--slate);font-size:.875rem;font-weight:500;
+  transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:-3px;left:0;right:0;
+  height:2px;background:var(--green);border-radius:2px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-primary{
+  background:var(--ink);color:var(--white);
+  border:none;padding:10px 22px;border-radius:50px;
+  font-size:.875rem;font-weight:600;
+  transition:all .22s;
+  box-shadow:0 4px 14px rgba(26,42,26,.22);
+}
+.btn-primary:hover{background:#2d4a2d;transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,42,26,.3)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.ham span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;display:block}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:rgba(247,244,238,.97);backdrop-filter:blur(50px);-webkit-backdrop-filter:blur(50px);
+  border-bottom:1px solid var(--border);
+  padding:20px 20px;flex-direction:column;gap:12px;z-index:99;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--slate);font-size:.95rem;padding:8px 0;border-bottom:1px solid var(--border)}
+
+/* HERO BANNER */
+.legal-hero{
+  position:relative;
+  padding:140px 20px 64px;
+  text-align:center;
+  overflow:hidden;
+}
+.legal-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(26,42,26,.07) 1.5px,transparent 1.5px);
+  background-size:28px 28px;
+  pointer-events:none;
+}
+.legal-glow{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
+.lg1{width:600px;height:420px;background:radial-gradient(#9FE870,transparent 70%);opacity:.18;top:-160px;left:-160px}
+.lg2{width:480px;height:480px;background:radial-gradient(#9FE870,transparent 70%);opacity:.12;top:-60px;right:-160px}
+.legal-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:"DM Mono",monospace;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green-dark);font-weight:500;
+  margin-bottom:14px;position:relative;z-index:2;
+}
+.legal-eyebrow::before{content:"";width:18px;height:2px;background:var(--green);border-radius:2px}
+.legal-title{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:clamp(2rem,6vw,3.4rem);
+  font-weight:800;line-height:1.1;
+  letter-spacing:-.025em;
+  color:var(--ink);margin-bottom:14px;
+  position:relative;z-index:2;
+}
+.legal-sub{
+  color:var(--slate);font-size:1rem;max-width:560px;
+  margin:0 auto;line-height:1.75;position:relative;z-index:2;
+}
+.legal-meta{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:20px;
+  background:rgba(255,255,255,.6);
+  border:1.5px solid var(--border2);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:7px 18px;border-radius:50px;
+  font-size:.78rem;font-weight:600;color:var(--green-dark);
+  position:relative;z-index:2;
+}
+
+/* LAYOUT */
+.legal-wrap{
+  max-width:1160px;margin:0 auto;
+  padding:0 20px 90px;
+  display:grid;grid-template-columns:260px 1fr;gap:32px;
+  align-items:start;
+}
+.legal-toc{
+  position:sticky;top:90px;
+  background:rgba(255,255,255,.55);
+  border:1.5px solid var(--border);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.toc-title{
+  font-family:"DM Mono",monospace;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green-dark);font-weight:600;margin-bottom:14px;
+}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.toc-list a{
+  display:block;font-size:.84rem;color:var(--slate);
+  padding:8px 10px;border-radius:var(--radius-sm);
+  transition:all .2s;font-weight:500;
+}
+.toc-list a:hover{background:var(--green-pale);color:var(--ink)}
+
+.legal-content{display:flex;flex-direction:column;gap:18px}
+.legal-card{
+  background:rgba(255,255,255,.6);
+  border:1.5px solid var(--border);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+  transition:border-color .25s, box-shadow .25s;
+  scroll-margin-top:90px;
+}
+.legal-card:hover{border-color:var(--border2);box-shadow:var(--shadow-md)}
+.legal-card-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:9px;
+  background:var(--green);color:var(--ink);
+  font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:.85rem;
+  margin-bottom:14px;
+}
+.legal-card h2{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:1.25rem;font-weight:800;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.01em;
+}
+.legal-card p{color:var(--slate);font-size:.92rem;line-height:1.85;margin-bottom:10px}
+.legal-card p:last-child{margin-bottom:0}
+.legal-card ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.legal-card ul li{
+  font-size:.88rem;color:var(--slate);line-height:1.7;
+  padding-left:22px;position:relative;
+}
+.legal-card ul li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:8px;height:8px;border-radius:2px;
+  background:var(--green);
+}
+.legal-card strong{color:var(--ink);font-weight:700}
+.legal-highlight{
+  background:var(--green-pale);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+  font-size:.85rem;color:var(--ink);
+  margin-top:8px;
+}
+
+@media(max-width:900px){
+  .legal-wrap{grid-template-columns:1fr}
+  .legal-toc{position:static;order:-1}
+}
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .nav-links,.nav-right{display:none}
+  .ham{display:flex}
+}
+@media(max-width:640px){
+  .legal-hero{padding:100px 16px 48px}
+  .legal-wrap{padding:0 16px 64px}
+  .legal-card{padding:22px}
+  footer{padding:28px 16px}
+  .footer-inner{flex-direction:column;text-align:center;align-items:center}
+  .footer-links{justify-content:center}
+}
+
+/* FOOTER (shared) */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:40px 20px;max-width:100%}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:"Plus Jakarta Sans",sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);display:flex;align-items:center;gap:9px}
+.footer-logo-mark{width:32px;height:32px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.footer-copy{font-size:.82rem;color:#6B7A8A;margin-top:4px}
+.footer-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:.84rem;color:#6B7A8A;transition:color .2s}
+.footer-links a:hover{color:var(--green)}
+
+/* MODAL (shared) */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(26,42,26,.55);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;transition:opacity .25s ease;
+}
+.modal-overlay.open{display:flex;opacity:1}
+.modal-card{
+  background:var(--white);border-radius:var(--radius);
+  border:1.5px solid var(--border);
+  max-width:460px;width:100%;
+  padding:32px;
+  box-shadow:var(--shadow-md);
+  position:relative;
+  transform:translateY(16px) scale(.98);
+  transition:transform .25s ease;
+  max-height:90vh;overflow-y:auto;
+}
+.modal-overlay.open .modal-card{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--cream);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:var(--slate);
+  transition:all .2s;
+}
+.modal-close:hover{background:var(--green-pale);border-color:var(--border2);color:var(--ink)}
+.modal-icon{
+  width:48px;height:48px;border-radius:13px;background:var(--green-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:16px;
+}
+.modal-title{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:1.4rem;font-weight:800;color:var(--ink);
+  margin-bottom:6px;
+}
+.modal-sub{font-size:.85rem;color:var(--slate);margin-bottom:24px;line-height:1.6}
+.form-group{margin-bottom:14px}
+.form-label{
+  display:block;font-size:.78rem;font-weight:600;color:var(--ink);
+  margin-bottom:6px;
+}
+.form-input{
+  width:100%;padding:11px 14px;border-radius:var(--radius-sm);
+  border:1.5px solid var(--border);background:var(--cream);
+  font-size:.88rem;color:var(--ink);
+  font-family:"Inter",sans-serif;
+  transition:border-color .2s,background .2s;
+}
+.form-input:focus{outline:none;border-color:var(--green-dark);background:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{
+  width:100%;margin-top:10px;
+  background:var(--ink);color:var(--white);
+  border:none;border-radius:50px;
+  padding:13px;font-size:.92rem;font-weight:700;
+  font-family:"Plus Jakarta Sans",sans-serif;
+  transition:background .2s;
+}
+.form-submit:hover{background:#2d4a2d}
+.form-success{text-align:center;padding:20px 0;display:none}
+.form-success.show{display:block}
+.form-success .modal-icon{margin:0 auto 16px;background:var(--green-pale)}
+@media(max-width:480px){
+  .form-row{grid-template-columns:1fr}
+  .modal-card{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="index.html">
+    <div class="logo-mark">📚</div>
+    NxtStepEdu
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#roles">Roles</a></li>
+    <li><a href="index.html#features">Why Us</a></li>
+    <li><a href="index.html#how">Process</a></li>
+    <li><a href="index.html#schools">Schools</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-primary" onclick="openDemoModal()">Schedule a Demo</button>
+  </div>
+  <button class="ham" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mob">
+  <a href="index.html#roles">Roles</a>
+  <a href="index.html#features">Why Us</a>
+  <a href="index.html#how">Process</a>
+  <a href="index.html#schools">Schools</a>
+  <button class="btn-primary" style="margin-top:8px;border-radius:50px;padding:12px" onclick="openDemoModal()">Schedule a Demo</button>
+</div>
+
+<section class="legal-hero">
+  <div class="legal-glow lg1"></div>
+  <div class="legal-glow lg2"></div>
+  <div class="legal-eyebrow">Legal</div>
+  <h1 class="legal-title d">Privacy Policy</h1>
+  <p class="legal-sub">How NxtStepEdu collects, uses, and protects the personal data of students, parents, teachers and school administrators.</p>
+  <div class="legal-meta">🔒 DPDPA Compliant &nbsp;·&nbsp; Last updated: June 2026</div>
+</section>
+
+<div class="legal-wrap">
+  <aside class="legal-toc">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#info-we-collect">1. Information We Collect</a></li>
+      <li><a href="#how-we-use">2. How We Use Your Data</a></li>
+      <li><a href="#data-sharing">3. Data Sharing</a></li>
+      <li><a href="#data-security">4. Data Security</a></li>
+      <li><a href="#data-residency">5. Data Residency</a></li>
+      <li><a href="#your-rights">6. Your Rights</a></li>
+      <li><a href="#childrens-data">7. Children's Data</a></li>
+      <li><a href="#cookies">8. Cookies &amp; Tracking</a></li>
+      <li><a href="#retention">9. Data Retention</a></li>
+      <li><a href="#changes">10. Policy Changes</a></li>
+      <li><a href="#contact">11. Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <div class="legal-content">
+    <div class="legal-card" id="info-we-collect">
+      <div class="legal-card-num">1</div>
+      <h2 class="d">Information We Collect</h2>
+      <p>When a school onboards onto NxtStepEdu, we collect information necessary to operate the platform on behalf of students, parents, teachers, and administrators.</p>
+      <ul>
+        <li><strong>Account details:</strong> name, role, school name, email address, and phone number.</li>
+        <li><strong>Student academic data:</strong> attendance records, grades, assignment submissions, and report cards.</li>
+        <li><strong>Fee &amp; payment data:</strong> fee structure, payment history, and transaction references processed via Razorpay.</li>
+        <li><strong>Communication data:</strong> messages exchanged between parents and teachers within the app.</li>
+        <li><strong>Device &amp; usage data:</strong> app version, device type, and basic diagnostics for performance monitoring.</li>
+      </ul>
+    </div>
+
+    <div class="legal-card" id="how-we-use">
+      <div class="legal-card-num">2</div>
+      <h2 class="d">How We Use Your Data</h2>
+      <p>Data collected through NxtStepEdu is used solely to deliver and improve the school management experience for your institution.</p>
+      <ul>
+        <li>Generating attendance reports, report cards, and academic analytics.</li>
+        <li>Processing fee payments and issuing automated receipts.</li>
+        <li>Sending notifications about assignments, attendance, and announcements.</li>
+        <li>Powering AI-based academic insights and risk alerts for principals and teachers.</li>
+        <li>Improving platform reliability, performance, and security.</li>
+      </ul>
+      <div class="legal-highlight">We never use student or parent data for advertising, and we do not sell personal information to third parties.</div>
+    </div>
+
+    <div class="legal-card" id="data-sharing">
+      <div class="legal-card-num">3</div>
+      <h2 class="d">Data Sharing</h2>
+      <p>NxtStepEdu shares data only with trusted service providers required to operate core platform features, and only to the extent necessary.</p>
+      <ul>
+        <li><strong>Razorpay:</strong> for processing fee payments via UPI, cards, net banking, and wallets.</li>
+        <li><strong>Cloud infrastructure providers:</strong> for secure hosting and backups within India.</li>
+        <li><strong>SMS/notification providers:</strong> for delivering attendance and fee reminders.</li>
+        <li>Data may also be disclosed where required by applicable law or a valid order from a government authority.</li>
+      </ul>
+    </div>
+
+    <div class="legal-card" id="data-security">
+      <div class="legal-card-num">4</div>
+      <h2 class="d">Data Security</h2>
+      <p>We apply industry-standard safeguards to protect data stored and transmitted through NxtStepEdu.</p>
+      <ul>
+        <li>Data encrypted at rest using AES-256 encryption.</li>
+        <li>Data encrypted in transit using TLS 1.3.</li>
+        <li>Role-based access controls ensure each user only sees data relevant to their role.</li>
+        <li>Regular security audits and access logging across all administrative actions.</li>
+      </ul>
+    </div>
+
+    <div class="legal-card" id="data-residency">
+      <div class="legal-card-num">5</div>
+      <h2 class="d">Data Residency</h2>
+      <p>All student, parent, and school data is hosted on servers located within India (AWS Mumbai region), ensuring compliance with applicable Indian data residency expectations and the Digital Personal Data Protection Act (DPDPA).</p>
+    </div>
+
+    <div class="legal-card" id="your-rights">
+      <div class="legal-card-num">6</div>
+      <h2 class="d">Your Rights</h2>
+      <p>Parents, teachers, and administrators have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about them or their children.</li>
+        <li>Request correction of inaccurate or outdated information.</li>
+        <li>Request deletion of personal data, subject to academic record-keeping requirements.</li>
+        <li>Withdraw consent for optional communications such as marketing updates.</li>
+      </ul>
+      <p>To exercise these rights, please contact your school administrator, who can raise a request with our support team.</p>
+    </div>
+
+    <div class="legal-card" id="childrens-data">
+      <div class="legal-card-num">7</div>
+      <h2 class="d">Children's Data</h2>
+      <p>NxtStepEdu is designed for use by schools and is administered by adults — teachers, principals, and parents — on behalf of students. Student data is entered and managed by the school, and parents retain visibility and oversight over their child's information at all times. We do not knowingly collect data directly from children outside of this supervised school context.</p>
+    </div>
+
+    <div class="legal-card" id="cookies">
+      <div class="legal-card-num">8</div>
+      <h2 class="d">Cookies &amp; Tracking</h2>
+      <p>Our web and mobile apps use minimal essential cookies and local storage to keep you signed in and remember basic preferences such as theme and language. We do not use third-party advertising trackers.</p>
+    </div>
+
+    <div class="legal-card" id="retention">
+      <div class="legal-card-num">9</div>
+      <h2 class="d">Data Retention</h2>
+      <p>Academic records are retained for as long as a student is enrolled and for a reasonable period afterward to support transcript and transfer requests, in line with school record-keeping norms. Payment records are retained as required for accounting and tax purposes. Schools may request deletion of historical data subject to these requirements.</p>
+    </div>
+
+    <div class="legal-card" id="changes">
+      <div class="legal-card-num">10</div>
+      <h2 class="d">Policy Changes</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. Material changes will be communicated to school administrators via email, and the "last updated" date at the top of this page will be revised.</p>
+    </div>
+
+    <div class="legal-card" id="contact">
+      <div class="legal-card-num">11</div>
+      <h2 class="d">Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how your data is handled, please reach out to your school's NxtStepEdu administrator, or contact our support team through the demo request form and we'll route your query appropriately.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <div class="footer-logo-mark">📚</div>
+        NxtStepEdu
+      </div>
+      <div class="footer-copy" style="margin-top:6px">© 2025 NxtStepEdu. Built for Indian schools.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="demoModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeDemoModal()" aria-label="Close">✕</button>
+    <div id="demoFormView">
+      <div class="modal-icon">📅</div>
+      <div class="modal-title d">Schedule a Demo</div>
+      <div class="modal-sub">Tell us a bit about your school and we'll get in touch to set up a personalised walkthrough.</div>
+      <form id="demoForm" onsubmit="submitDemoForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" placeholder="10-digit mobile" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="you@school.edu" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">School Name</label>
+          <input class="form-input" type="text" placeholder="e.g. Delhi Public School" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">City</label>
+            <input class="form-input" type="text" placeholder="City" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">No. of Students</label>
+            <input class="form-input" type="number" placeholder="Approx. count">
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Request Demo →</button>
+      </form>
+    </div>
+    <div class="form-success" id="demoSuccessView">
+      <div class="modal-icon">✅</div>
+      <div class="modal-title d">Request Received!</div>
+      <div class="modal-sub">Thanks for reaching out. Our team will contact you within 24 hours to schedule your personalised demo.</div>
+      <button class="form-submit" onclick="closeDemoModal()">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openDemoModal(){
+  document.getElementById("demoModal").classList.add("open");
+  document.getElementById("demoFormView").style.display="block";
+  document.getElementById("demoSuccessView").classList.remove("show");
+  document.getElementById("demoForm").reset();
+  document.body.style.overflow="hidden";
+}
+function closeDemoModal(){
+  document.getElementById("demoModal").classList.remove("open");
+  document.body.style.overflow="";
+}
+function submitDemoForm(e){
+  e.preventDefault();
+  document.getElementById("demoFormView").style.display="none";
+  document.getElementById("demoSuccessView").classList.add("show");
+}
+document.getElementById("demoModal").addEventListener("click",e=>{
+  if(e.target.id==="demoModal")closeDemoModal();
+});
+
+const ham=document.getElementById("ham"),mob=document.getElementById("mob");
+ham.addEventListener("click",()=>mob.classList.toggle("open"));
+mob.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>mob.classList.remove("open")));
+</script>
+</body>
+</html>

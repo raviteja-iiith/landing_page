@@ -585,6 +585,80 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 }
 
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(26,42,26,.55);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;transition:opacity .25s ease;
+}
+.modal-overlay.open{display:flex;opacity:1}
+.modal-card{
+  background:var(--white);border-radius:var(--radius);
+  border:1.5px solid var(--border);
+  max-width:460px;width:100%;
+  padding:32px;
+  box-shadow:var(--shadow-md);
+  position:relative;
+  transform:translateY(16px) scale(.98);
+  transition:transform .25s ease;
+  max-height:90vh;overflow-y:auto;
+}
+.modal-overlay.open .modal-card{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--cream);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:var(--slate);
+  transition:all .2s;
+}
+.modal-close:hover{background:var(--green-pale);border-color:var(--border2);color:var(--ink)}
+.modal-icon{
+  width:48px;height:48px;border-radius:13px;background:var(--green-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:16px;
+}
+.modal-title{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:1.4rem;font-weight:800;color:var(--ink);
+  margin-bottom:6px;
+}
+.modal-sub{font-size:.85rem;color:var(--slate);margin-bottom:24px;line-height:1.6}
+.form-group{margin-bottom:14px}
+.form-label{
+  display:block;font-size:.78rem;font-weight:600;color:var(--ink);
+  margin-bottom:6px;
+}
+.form-input{
+  width:100%;padding:11px 14px;border-radius:var(--radius-sm);
+  border:1.5px solid var(--border);background:var(--cream);
+  font-size:.88rem;color:var(--ink);
+  font-family:"Inter",sans-serif;
+  transition:border-color .2s,background .2s;
+}
+.form-input:focus{outline:none;border-color:var(--green-dark);background:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{
+  width:100%;margin-top:10px;
+  background:var(--ink);color:var(--white);
+  border:none;border-radius:50px;
+  padding:13px;font-size:.92rem;font-weight:700;
+  font-family:"Plus Jakarta Sans",sans-serif;
+  transition:background .2s;
+}
+.form-submit:hover{background:#2d4a2d}
+.form-success{
+  text-align:center;padding:20px 0;display:none;
+}
+.form-success.show{display:block}
+.form-success .modal-icon{margin:0 auto 16px;background:var(--green-pale)}
+@media(max-width:480px){
+  .form-row{grid-template-columns:1fr}
+  .modal-card{padding:24px}
+}
 </style>
 </head>
 <body>
@@ -596,13 +670,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   </a>
   <ul class="nav-links">
     <li><a href="#roles">Roles</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Why Us</a></li>
+    <li><a href="#how">Process</a></li>
     <li><a href="#schools">Schools</a></li>
   </ul>
   <div class="nav-right">
     
-    <button class="btn-primary">Schedule a Demo</button>
+    <button class="btn-primary" onclick="openDemoModal()">Schedule a Demo</button>
   </div>
   <button class="ham" id="ham" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -611,10 +685,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 
 <div class="mob-menu" id="mob">
   <a href="#roles">Roles</a>
-  <a href="#features">Features</a>
-  <a href="#how">How it works</a>
+  <a href="#features">Why Us</a>
+  <a href="#how">Process</a>
   <a href="#schools">Schools</a>
-  <button class="btn-primary" style="margin-top:8px;border-radius:50px;padding:12px">Schedule a Demo</button>
+  <button class="btn-primary" style="margin-top:8px;border-radius:50px;padding:12px" onclick="openDemoModal()">Schedule a Demo</button>
 </div>
 
 <section class="hero">
@@ -642,7 +716,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     </p>
 
     <div class="hero-actions">
-      <button class="btn-lg btn-lg-primary">Book Your Demo →</button>
+      <button class="btn-lg btn-lg-primary" onclick="openDemoModal()">Book Your Demo →</button>
       <button class="btn-lg btn-lg-outline">Watch 2-min Demo →</button>
     </div>
 
@@ -653,7 +727,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="trust-av ta3">RS</div>
         <div class="trust-av ta4">NR</div>
       </div>
-      <div class="trust-text"><strong>25+ schools</strong> across India</div>
+      <div class="trust-text"><strong>17+ schools</strong> across India</div>
       <div class="trust-div"></div>
       <div class="trust-chip"><span>★★★★★</span> 4.9 / 5</div>
       <div class="trust-div"></div>
@@ -696,11 +770,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat-card rv d1">
-      <div class="stat-num"><span data-target="25" data-suffix="+">0+</span></div>
+      <div class="stat-num"><span data-target="17" data-suffix="+">0+</span></div>
       <div class="stat-label">Schools Onboarded</div>
     </div>
     <div class="stat-card rv d2">
-      <div class="stat-num">1.5L<span>+</span></div>
+      <div class="stat-num">1.2L<span>+</span></div>
       <div class="stat-label">Active Students</div>
     </div>
     <div class="stat-card rv d3">
@@ -901,6 +975,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="feat-card rv d1"><div class="feat-icon fi-p">📝</div><div class="feat-title d">Assignment Tracker</div><div class="feat-desc">Teachers upload, students submit, parents track — all in one closed loop. Deadline alerts and submission analytics built in.</div></div>
     <div class="feat-card rv d2"><div class="feat-icon fi-r">💬</div><div class="feat-title d">Parent–Teacher Connect</div><div class="feat-desc">In-app messaging, PTM scheduling, and a shared child timeline. No more missed calls or lost paper notes home.</div></div>
     <div class="feat-card rv d3"><div class="feat-icon fi-o">📱</div><div class="feat-title d">Mobile-First Apps</div><div class="feat-desc">Fully responsive web app plus native iOS and Android apps. Works beautifully on any screen, even on 2G connections.</div></div>
+    <div class="feat-card rv d1"><div class="feat-icon fi-g">🚌</div><div class="feat-title d">Bus GPS Tracker</div><div class="feat-desc">Live transport tracking with real-time bus location, route mapping, and arrival alerts for parents and transport staff.</div></div>
+    <div class="feat-card rv d2"><div class="feat-icon fi-b">🪪</div><div class="feat-title d">RFID Cards</div><div class="feat-desc">Radio Frequency ID cards for tap-based attendance, gate entry/exit logs, and library or canteen access — all auto-synced.</div></div>
+    <div class="feat-card rv d3"><div class="feat-icon fi-p">🎓</div><div class="feat-title d">Learning Management System</div><div class="feat-desc">Digital course content, quizzes, video lessons and progress tracking — accessible to students anytime, anywhere.</div></div>
   </div>
 </section>
 </div>
@@ -908,7 +985,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <div class="how-wrap" id="how">
   <div class="how-inner">
     <div class="eyebrow rv">Simple Setup</div>
-    <h2 class="section-title d rv">Up and running in <span style="color:var(--green-dark)">under a day</span></h2>
+    <h2 class="section-title d rv">Up and running in <span style="color:var(--green-dark)">under a week</span></h2>
     <div class="steps-grid">
       <div class="step-connector"></div>
       <div class="step rv d1">
@@ -1027,10 +1104,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="cta-inner">
     <div class="cta-badge">GET STARTED TODAY</div>
     <h2 class="cta-title d">Ready to modernise<br>your school? </h2>
-    <p class="cta-sub">Join 25+ schools across India. Full setup in under a day. No IT team required.</p>
+    <p class="cta-sub">Join 17+ schools across India. Full setup in under a week. No IT team required.</p>
     <div class="cta-acts">
-      <button class="btn-cta-p">Schedule a Demo →</button>
-      <button class="btn-cta-o">📞 Contact Our Team</button>
+      <button class="btn-cta-p" onclick="openDemoModal()">Schedule a Demo →</button>
     </div>
   </div>
 </section>
@@ -1047,11 +1123,80 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy</a></li>
       <li><a href="terms.html">Terms</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="#">Instagram</a></li>
+      
     </ul>
   </div>
 </footer>
+
+<div class="modal-overlay" id="demoModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeDemoModal()" aria-label="Close">✕</button>
+    <div id="demoFormView">
+      <div class="modal-icon">📅</div>
+      <div class="modal-title d">Schedule a Demo</div>
+      <div class="modal-sub">Tell us a bit about your school and we'll get in touch to set up a personalised walkthrough.</div>
+      <form id="demoForm" onsubmit="submitDemoForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" placeholder="10-digit mobile" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="you@school.edu" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">School Name</label>
+          <input class="form-input" type="text" placeholder="e.g. Delhi Public School" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">City</label>
+            <input class="form-input" type="text" placeholder="City" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">No. of Students</label>
+            <input class="form-input" type="number" placeholder="Approx. count">
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Request Demo →</button>
+      </form>
+    </div>
+    <div class="form-success" id="demoSuccessView">
+      <div class="modal-icon">✅</div>
+      <div class="modal-title d">Request Received!</div>
+      <div class="modal-sub">Thanks for reaching out. Our team will contact you within 24 hours to schedule your personalised demo.</div>
+      <button class="form-submit" onclick="closeDemoModal()">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openDemoModal(){
+  document.getElementById("demoModal").classList.add("open");
+  document.getElementById("demoFormView").style.display="block";
+  document.getElementById("demoSuccessView").classList.remove("show");
+  document.getElementById("demoForm").reset();
+  document.body.style.overflow="hidden";
+}
+function closeDemoModal(){
+  document.getElementById("demoModal").classList.remove("open");
+  document.body.style.overflow="";
+}
+function submitDemoForm(e){
+  e.preventDefault();
+  document.getElementById("demoFormView").style.display="none";
+  document.getElementById("demoSuccessView").classList.add("show");
+}
+document.getElementById("demoModal").addEventListener("click",e=>{
+  if(e.target.id==="demoModal")closeDemoModal();
+});
+</script>
 
 <script>
 const nav=document.getElementById("nav");
