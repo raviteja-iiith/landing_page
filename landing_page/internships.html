@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NxtStepEdu — Work With Us | Internships</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#F7F4EE;
+    --cream2:#F0EDE5;
+    --green:#9FE870;
+    --green-dark:#5CB832;
+    --green-pale:#E8F5E0;
+    --ink:#1A2A1A;
+    --slate:#4A5568;
+    --muted:#8896A5;
+    --white:#FAF8F3;
+    --border:#E2DDD4;
+    --border2:#C8E8B0;
+    --card:#FFFFFF;
+    --radius:18px;
+    --radius-sm:10px;
+    --shadow:0 2px 20px rgba(26,42,26,.07);
+    --shadow-md:0 8px 40px rgba(26,42,26,.1);
+    --maxw:1160px;
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Inter", sans-serif;
+    overflow-x:hidden;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:var(--cream)}
+  ::-webkit-scrollbar-thumb{background:var(--green-dark);border-radius:3px}
+  
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; width:100%;}
+  a{text-decoration:none; color:inherit; transition:color .2s;}
+  ul{list-style:none; margin:0; padding:0;}
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4, .logo, .stat-num, .price {
+    font-family:"Plus Jakarta Sans", sans-serif;
+    color:var(--ink);
+  }
+
+  /* NAV */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(247,244,238,0);
+    backdrop-filter:blur(50px); -webkit-backdrop-filter:blur(50px);
+    border-bottom:1px solid transparent;
+    transition:background .35s, backdrop-filter .35s, -webkit-backdrop-filter .35s, border-color .35s, box-shadow .35s;
+  }
+  header.nav.on{
+    background:rgba(247,244,238,.45);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 16px rgba(26,42,26,.04);
+  }
+  .nav-inner{
+    height:72px; display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{font-size:1.35rem; font-weight:800; display:flex; align-items:center; gap:10px;}
+  .logo .mark{
+    width:36px; height:36px; background:var(--green); border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 12px rgba(159,232,112,.4); transition:transform .2s;
+  }
+  .logo:hover .mark{transform:rotate(-6deg) scale(1.05);}
+  
+  /* BUTTONS */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 28px; border-radius:50px; font-weight:700; font-size:.95rem;
+    font-family:"Plus Jakarta Sans", sans-serif; cursor:pointer;
+    white-space:nowrap; transition:all .25s; border:none;
+  }
+  .btn-primary{
+    background:var(--ink); color:var(--white);
+    box-shadow:0 8px 28px rgba(26,42,26,.25), 0 2px 8px rgba(26,42,26,.15);
+  }
+  .btn-primary:hover{background:#2d4a2d; transform:translateY(-3px); box-shadow:0 14px 40px rgba(26,42,26,.35);}
+  
+  .btn-green{
+    background:var(--green); color:var(--ink);
+    box-shadow:0 8px 28px rgba(159,232,112,.3);
+  }
+  .btn-green:hover{transform:translateY(-3px); box-shadow:0 14px 40px rgba(159,232,112,.45);}
+  
+  .btn-outline{
+    background:var(--white); color:var(--ink); border:1.5px solid var(--border)!important;
+    box-shadow:0 4px 16px rgba(26,42,26,.1), 0 2px 6px rgba(26,42,26,.07);
+  }
+  .btn-outline:hover{border-color:var(--green-dark)!important; transform:translateY(-2px);}
+  .btn-sm{padding:10px 22px; font-size:.875rem;}
+
+  /* SECTION GLOBALS */
+  .section{padding:90px 0; position:relative;}
+  .section-head{text-align:center; max-width:680px; margin:0 auto 48px;}
+  .section-head.left-aligned {text-align:left; margin:0 0 40px 0; max-width:100%;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:7px; font-family:"DM Mono", monospace;
+    font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--green-dark); font-weight:600; margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:18px; height:2px; background:var(--green); border-radius:2px;}
+  .section-head h2{
+    font-size:clamp(2rem, 5vw, 3rem); font-weight:800; line-height:1.12;
+    letter-spacing:-.025em; margin:0 0 14px;
+  }
+  .section-head h2 .accent{
+    position:relative; display:inline-block; white-space:nowrap; z-index:1;
+  }
+  .section-head h2 .accent::after{
+    content:""; position:absolute; bottom:2px; left:0; right:0;
+    height:6px; background:var(--green); border-radius:3px; z-index:-1;
+  }
+  .section-head p{color:var(--slate); font-size:1rem; line-height:1.75; max-width:540px; margin:0 auto;}
+  .section-head.left-aligned p{margin:0;}
+  .divider{height:1px; background:var(--border); border:none; margin:0;}
+
+  /* HERO BLOCK */
+  .hero-section {
+    min-height:100vh; display:flex; align-items:center; padding:120px 0 80px;
+    position:relative; overflow:hidden;
+    background-image:radial-gradient(rgba(26,42,26,.07) 1.5px, transparent 1.5px);
+    background-size:28px 28px;
+  }
+  .hero-glow{position:absolute; inset:0; pointer-events:none; overflow:hidden;}
+  .glow{position:absolute; border-radius:50%; filter:blur(100px);}
+  .g1{width:700px; height:500px; background:radial-gradient(#9FE870, transparent 70%); opacity:.18; top:-80px; left:-200px; animation:drift 12s ease-in-out infinite;}
+  .g2{width:500px; height:500px; background:radial-gradient(#9FE870, transparent 70%); opacity:.12; top:100px; right:-150px; animation:drift 15s ease-in-out infinite; animation-delay:-5s;}
+  @keyframes drift{0%,100%{transform:translate(0,0)} 33%{transform:translate(30px,-20px)} 66%{transform:translate(-15px,25px)}}
+  
+  .hero-grid {display:grid; grid-template-columns:1.2fr 0.8fr; gap:48px; align-items:center; position:relative; z-index:2;}
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:8px; background:var(--white);
+    border:1.5px solid var(--border2); padding:6px 16px 6px 8px; border-radius:50px;
+    font-size:.78rem; font-weight:600; color:var(--green-dark); margin-bottom:28px;
+    box-shadow:0 2px 12px rgba(159,232,112,.2);
+  }
+  .eyebrow-pill::before{
+    content:"✨"; display:flex; align-items:center; justify-content:center;
+    width:26px; height:26px; background:var(--green); border-radius:50%; font-size:.8rem; flex-shrink:0;
+  }
+  h1{font-size:clamp(2.5rem, 6vw, 4.2rem); font-weight:800; line-height:1.08; letter-spacing:-.03em; margin:0 0 20px;}
+  h1 .accent{position:relative; display:inline-block; white-space:nowrap; z-index:1;}
+  h1 .accent::after{content:""; position:absolute; bottom:6px; left:0; right:0; height:8px; background:var(--green); border-radius:4px; z-index:-1;}
+  .hero-content p.sub{color:var(--slate); font-size:1.1rem; line-height:1.75; margin:0 0 40px; max-width:540px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .hero-meta{
+    display:flex; gap:16px; flex-wrap:wrap; font-size:.82rem; color:var(--slate);
+    align-items:center;
+  }
+  .hero-meta span{display:flex; align-items:center; gap:6px; font-weight:600;}
+  .hero-meta b{color:var(--ink); font-weight:700;}
+  .hero-meta-div{width:1px; height:24px; background:var(--border);}
+
+  /* HERO SIDEBAR STATS CARD */
+  .hero-stats-card {
+    background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius);
+    padding:36px; box-shadow:var(--shadow-md); transition:all .3s;
+  }
+  .hero-stats-card:hover{border-color:var(--border2); transform:translateY(-4px);}
+  .hero-stats-card h3 {margin:0 0 24px 0; font-size:1.25rem; font-weight:800;}
+  .mini-stat-grid {display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .m-stat {border-bottom:1px solid var(--border); padding-bottom:16px;}
+  .m-stat:nth-last-child(-n+2) {border-bottom:none; padding-bottom:0; padding-top:4px;}
+  .m-stat .num {font-size:1.8rem; font-weight:800; color:var(--ink); margin-bottom:2px;}
+  .m-stat .label {font-size:.82rem; color:var(--muted); font-weight:500;}
+  .hero-trust-footer {margin-top:24px; border-top:1px solid var(--border); padding-top:24px;}
+  .avatars{display:flex; margin-bottom:12px;}
+  .avatars span{
+    width:34px; height:34px; border-radius:50%; border:2.5px solid var(--white);
+    display:flex; align-items:center; justify-content:center; font-size:.7rem; font-weight:700;
+    color:var(--white); margin-left:-10px; flex-shrink:0; background:var(--muted);
+  }
+  .avatars span:nth-child(1){background:#5CB832; margin-left:0;}
+  .avatars span:nth-child(2){background:#3B82F6;}
+  .avatars span:nth-child(3){background:#F59E0B;}
+  .avatars span:nth-child(4){background:#EF4444;}
+  .hero-trust-footer p {margin:0; font-size:.85rem; color:var(--slate); line-height:1.6;}
+  .hero-trust-footer b {color:var(--ink);}
+
+  /* OPEN TRACKS MATRIX LAYOUT */
+  #tracks{
+    background-image:linear-gradient(rgba(159,232,112,.08) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(159,232,112,.08) 1px, transparent 1px);
+    background-size:80px 80px, 80px 80px;
+    background-color:var(--white);
+    border-bottom:1px solid var(--border);
+  }
+  .matrix-grid {display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; position:relative; z-index:2;}
+  .matrix-card {
+    border:1.5px solid var(--border); border-radius:var(--radius);
+    background:var(--white); padding:36px; display:flex;
+    flex-direction:column; justify-content:space-between;
+    transition:all .3s ease; box-shadow:var(--shadow);
+  }
+  .matrix-card:hover {border-color:var(--border2); transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .matrix-head {display:flex; gap:16px; align-items:flex-start; margin-bottom:20px;}
+  .matrix-icon {
+    width:52px; height:52px; border-radius:14px; background:var(--green-pale);
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;
+  }
+  .matrix-head h3 {font-size:1.4rem; margin:6px 0 0 0; font-weight:800;}
+  .matrix-card p {color:var(--slate); font-size:.95rem; line-height:1.7; margin:0 0 24px 0;}
+  .matrix-skills {border-top:1px solid var(--border); padding-top:20px; margin-bottom:32px;}
+  .matrix-skills li {display:flex; gap:10px; font-size:.88rem; padding:8px 0; color:var(--slate); align-items:flex-start;}
+  .matrix-skills li::before {
+    content:"✓"; display:flex; align-items:center; justify-content:center;
+    width:20px; height:20px; background:var(--green); border-radius:50%;
+    color:var(--ink); font-size:.6rem; font-weight:800; flex-shrink:0; margin-top:2px;
+  }
+  .eligibility-note{text-align:center; font-size:.85rem; color:var(--muted); margin-top:40px;}
+
+  /* INTEGRATED BLUEPRINT SECTION */
+  #experience{
+    background-image:radial-gradient(rgba(26,42,26,.05) 1.5px, transparent 1.5px);
+    background-size:32px 32px; background-color:var(--cream2);
+    border-bottom:1px solid var(--border);
+  }
+  .blueprint-split {display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+  
+  /* Vertical Timeline */
+  .timeline-flow {position:relative; padding-left:40px; margin-top:32px;}
+  .timeline-flow::before {
+    content:''; position:absolute; left:19px; top:16px; bottom:16px; width:2px;
+    background:repeating-linear-gradient(to bottom, var(--green) 0, var(--green) 8px, transparent 8px, transparent 16px);
+  }
+  .v-step {position:relative; margin-bottom:40px;}
+  .v-step:last-child {margin-bottom:0;}
+  .v-circ {
+    position:absolute; left:-40px; top:0; transform:translateX(-50%);
+    width:40px; height:40px; border-radius:50%; background:var(--green);
+    color:var(--ink); font-weight:800; font-size:1.1rem; font-family:"Plus Jakarta Sans", sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 8px rgba(159,232,112,.18);
+  }
+  .v-step h4 {font-size:1.1rem; margin:0 0 8px 0; font-weight:800;}
+  .v-step p {font-size:.9rem; color:var(--slate); line-height:1.7; margin:0;}
+
+  /* Compact Feature Matrix Block */
+  .feature-compact-grid {display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;}
+  .feature-card{
+    border:1.5px solid var(--border); border-radius:var(--radius); padding:24px;
+    background:var(--white); transition:all .3s ease; box-shadow:var(--shadow);
+  }
+  .feature-card:hover{transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow-md);}
+  .feature-card .emoji{
+    width:48px; height:48px; border-radius:13px; background:var(--green-pale);
+    display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:16px;
+  }
+  .feature-card h4{font-size:.95rem; margin:0 0 8px; font-weight:800;}
+  .feature-card p{font-size:.84rem; color:var(--slate); line-height:1.7; margin:0;}
+
+  /* AUTHORITY TRUST SYNC */
+  #community{background:var(--white); border-bottom:1px solid var(--border);}
+  .trust-layout {display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px;}
+  .mentor-column {display:flex; flex-direction:column; gap:16px;}
+  .mentor-card-strip {
+    display:flex; align-items:center; gap:20px; border:1.5px solid var(--border);
+    border-radius:var(--radius); padding:20px 24px; background:var(--white);
+    box-shadow:var(--shadow); transition:all .3s;
+  }
+  .mentor-card-strip:hover{transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow-md);}
+  .mentor-avatar{
+    width:52px; height:52px; border-radius:14px; flex-shrink:0;
+    background:var(--green-pale); border:1.5px solid var(--border2);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-family:"Plus Jakarta Sans", sans-serif; color:var(--ink); font-size:1.1rem;
+  }
+  .mentor-info h4{margin:0 0 4px 0; font-size:1.05rem; font-weight:800;}
+  .mentor-info .role{font-size:.85rem; color:var(--slate); margin-bottom:8px;}
+  .mentor-info .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; color:var(--green-dark);
+    background:var(--white); border:1px solid var(--border2); padding:4px 10px;
+    border-radius:50px; font-family:"DM Mono", monospace; letter-spacing:.05em;
+  }
+  
+  .testi-column {display:flex; flex-direction:column; gap:16px;}
+  .testi-card{
+    border:1.5px solid var(--border); border-radius:var(--radius); padding:32px;
+    background:var(--white); box-shadow:var(--shadow); transition:all .3s;
+  }
+  .testi-card:hover{transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow-md);}
+  .testi-card .stars{display:flex; gap:4px; margin-bottom:16px;}
+  .testi-card .stars span{
+    width:18px; height:18px; background:var(--green); border-radius:4px;
+    display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--ink);
+  }
+  .testi-card p.quote{font-size:.95rem; line-height:1.75; color:var(--slate); margin:0 0 24px;}
+  .testi-who{display:flex; align-items:center; gap:12px;}
+  .testi-who .ini{
+    width:40px; height:40px; border-radius:50%; background:var(--green-pale); color:var(--green-dark);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.85rem;
+    font-family:"Plus Jakarta Sans", sans-serif;
+  }
+.testi-who .name{font-size:.9rem; font-weight:700; color:var(--ink);}
+  .testi-who .role{font-size:.78rem; color:var(--muted);}
+  .testi-who .testi-img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border);}
+
+  /* PRICING ENGINE */
+  #pricing{background:var(--cream); border-bottom:1px solid var(--border);}
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;}
+  .price-card{
+    border:1.5px solid var(--border); border-radius:var(--radius); padding:40px 32px;
+    background:var(--white); position:relative; display:flex; flex-direction:column;
+    transition:all .3s ease; z-index:1; box-shadow:var(--shadow);
+  }
+  .price-card:hover{transform:translateY(-5px); border-color:var(--border2); box-shadow:var(--shadow-md);}
+  .price-card.top{border:2px solid var(--green); box-shadow:0 12px 32px rgba(159,232,112,.15); z-index:2;}
+  .price-card.top::before{
+    content:""; position:absolute; inset:-20px; z-index:-1; pointer-events:none;
+    background:radial-gradient(var(--green-pale), transparent 70%); filter:blur(20px); opacity:0.6;
+  }
+  .price-badge{
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--green); color:var(--ink); font-size:.75rem; font-family:"DM Mono", monospace;
+    font-weight:700; padding:6px 16px; border-radius:50px; letter-spacing:.05em; white-space:nowrap;
+  }
+  .price-card h3{font-size:1.25rem; margin:0 0 8px; font-weight:800;}
+  .price-card .price{font-size:2.6rem; font-weight:800; margin-bottom:4px; line-height:1;}
+  .price-card .price span{font-size:1rem; color:var(--muted); font-weight:600;}
+  .price-card .note{font-size:.82rem; color:var(--muted); margin-bottom:28px;}
+  .price-card ul{margin-bottom:36px; flex-grow:1; display:flex; flex-direction:column; gap:12px;}
+  .price-card ul li{font-size:.88rem; display:flex; gap:10px; color:var(--slate); align-items:flex-start;}
+  .price-card ul li::before{
+    content:"✓"; display:flex; align-items:center; justify-content:center;
+    width:20px; height:20px; background:var(--green-pale); border-radius:50%;
+    color:var(--green-dark); font-size:.6rem; font-weight:800; flex-shrink:0; margin-top:2px;
+  }
+  .price-card ul li.dim{color:var(--muted);}
+  .price-card ul li.dim::before{content:"—"; background:transparent; color:var(--muted); font-size:.8rem;}
+
+  /* CAMPUS AMBASSADOR BANNER */
+  #ambassador{padding:60px 0;}
+  .amb-section{
+    background:var(--ink); color:var(--white); border-radius:24px; padding:80px 44px; margin:0 auto;
+    max-width:var(--maxw); position:relative; overflow:hidden;
+    background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size:28px 28px;
+    box-shadow:0 20px 40px rgba(26,42,26,.2);
+  }
+  .amb-section::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 700px 400px at 50% 50%, rgba(159,232,112,.12), transparent);
+  }
+  .amb-inner{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; position:relative; z-index:2;}
+  .amb-inner .eyebrow{color:var(--green);}
+  .amb-inner .eyebrow::before{background:var(--green);}
+  .amb-inner h2{font-size:2.2rem; margin:0 0 16px; font-weight:800; letter-spacing:-.025em; color:var(--white);}
+  .amb-inner > div p.lead{color:#8896A5; font-size:1.05rem; line-height:1.7; margin:0 0 28px;}
+  .amb-list{display:flex; flex-direction:column; gap:12px; margin-bottom:32px;}
+  .amb-list li{display:flex; gap:12px; font-size:.95rem; color:#E2DDD4; align-items:center;}
+  .amb-list li::before{content:"→"; color:var(--green); font-weight:800; font-family:"DM Mono", monospace;}
+  .amb-stats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .amb-stat{
+    background:rgba(255,255,255,.03); border:1.5px solid rgba(255,255,255,.08);
+    border-radius:var(--radius); padding:24px; text-align:center; backdrop-filter:blur(10px);
+    transition:all .3s ease;
+  }
+  .amb-stat:hover{background:rgba(255,255,255,.06); border-color:rgba(159,232,112,.3); transform:translateY(-4px);}
+  .amb-stat .num{font-size:2rem; margin-bottom:8px;}
+  .amb-stat .label{font-size:.82rem; color:#8896A5; font-weight:500;}
+  .amb-cta{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* FAQ SYSTEM */
+  #faq{
+    background-image:linear-gradient(rgba(26,42,26,.04) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(26,42,26,.04) 1px, transparent 1px);
+    background-size:16px 16px; background-color:var(--white);
+  }
+  .faq-list {max-width:840px; margin:0 auto; display:flex; flex-direction:column; gap:12px;}
+  .faq-item{
+    background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius-sm);
+    overflow:hidden; box-shadow:0 2px 12px rgba(26,42,26,.06); transition:border-color .2s;
+  }
+  .faq-item.open{border-color:var(--border2);}
+  .faq-q{
+    padding:18px 24px; display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; font-weight:600; font-size:.95rem; color:var(--ink); user-select:none; gap:12px; transition:color .2s;
+  }
+  .faq-q:hover{color:var(--green-dark);}
+  .faq-toggle{
+    width:28px; height:28px; border-radius:50%; background:var(--cream);
+    border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center;
+    font-size:.8rem; color:var(--slate); flex-shrink:0; transition:all .3s; font-weight:700;
+  }
+  .faq-item.open .faq-toggle{background:var(--green); border-color:var(--green); transform:rotate(45deg); color:var(--ink);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+  .faq-a p{padding:0 24px 24px; margin:0; font-size:.9rem; color:var(--slate); line-height:1.8;}
+
+  /* FINAL CTA */
+  .final-cta{
+    text-align:center; padding:100px 24px; position:relative; overflow:hidden;
+    background:var(--ink); background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  .final-cta::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 700px 400px at 50% 50%, rgba(159,232,112,.12), transparent);
+  }
+  .final-cta-inner{position:relative; z-index:2;}
+  .final-cta h2{font-size:clamp(2rem, 5vw, 3.2rem); font-weight:800; margin:0 0 16px; letter-spacing:-.025em; color:var(--white);}
+  .final-cta p{color:#8896A5; font-size:1.05rem; margin:0 auto 36px; max-width:540px; line-height:1.7;}
+  .final-cta .ctas{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn-cta-o{
+    padding:14px 32px; border-radius:50px; font-size:.95rem; font-weight:700;
+    background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.2)!important;
+    font-family:"Plus Jakarta Sans", sans-serif; transition:all .22s; text-decoration:none; display:inline-flex; align-items:center;
+  }
+  .btn-cta-o:hover{border-color:rgba(255,255,255,.5)!important; background:rgba(255,255,255,.06); transform:translateY(-2px);}
+
+  /* FOOTER */
+  footer{background:var(--ink); border-top:1px solid rgba(255,255,255,.08); padding:60px 0 32px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
+  .foot-grid .logo{color:var(--white);}
+  .foot-grid h5{font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; color:var(--white); margin:0 0 18px; font-family:"Plus Jakarta Sans", sans-serif;}
+  .foot-grid li{font-size:.88rem; color:#8896A5; padding:8px 0; transition:color .2s;}
+  .foot-grid li:hover{color:var(--green); cursor:pointer;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    font-size:.85rem; color:#6B7A8A; padding-top:32px; border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:1024px){
+    .pricing-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:960px){
+    .hero-grid, .matrix-grid, .blueprint-split, .trust-layout, .foot-grid {grid-template-columns: 1fr;}
+    .amb-inner{grid-template-columns:1fr;}
+    .hero-content {text-align: center; display:flex; flex-direction:column; align-items:center;}
+    .hero-ctas, .hero-meta {justify-content: center;}
+    .hero-meta-div {display:none;}
+    .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
+    .section-head.left-aligned {text-align:center;}
+    .pricing-grid{grid-template-columns: 1fr; max-width:500px; margin:0 auto;}
+  }
+  @media (max-width:640px) {
+    .section{padding:60px 0;}
+    .feature-compact-grid {grid-template-columns: 1fr;}
+    .amb-section{padding:56px 24px;}
+    .amb-stats {grid-template-columns: 1fr;}
+    .btn{width:100%;}
+    .hero-stats-card{padding:24px;}
+    .matrix-card{padding:24px;}
+    .price-card{padding:32px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">
+      <div class="mark"></div>
+      NxtStepEdu
+    </a>
+    <a href="#apply" class="btn btn-primary btn-sm">Apply Now</a>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="hero-glow">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-content relative-z">
+      <div class="eyebrow-pill">Applications open — July batch</div>
+      <h1>Real internships.<br>Not just <span class="accent">certificates.</span></h1>
+      <p class="sub">Work on real datasets, ship a live capstone project, and get 1:1 mentored by IIIT Hyderabad graduates across foundational modern engineering domains.</p>
+      <div class="hero-ctas">
+        <a href="#apply" class="btn btn-green">Apply for Internship →</a>
+        <a href="#pricing" class="btn btn-outline">Download Brochure</a>
+      </div>
+      <div class="hero-meta">
+        <span>Batch Starting: <b>July</b></span>
+        <div class="hero-meta-div"></div>
+        <span>Availability: <b style="color:#EF4444">18 seats left</b></span>
+        <div class="hero-meta-div"></div>
+        <span>Duration: <b>2–3 Months</b></span>
+      </div>
+    </div>
+    
+    <div class="hero-sidebar relative-z">
+      <div class="hero-stats-card">
+        <h3>About Us</h3>
+        <div class="mini-stat-grid">
+          <div class="m-stat"><div class="num">1,200+</div><div class="label">Interns Trained</div></div>
+          <div class="m-stat"><div class="num">15+</div><div class="label">Domains &amp; Tracks</div></div>
+          <div class="m-stat"><div class="num">300+</div><div class="label">Ambassadors</div></div>
+          <div class="m-stat"><div class="num">₹18L+</div><div class="label">Paid Out Locally</div></div>
+        </div>
+        <div class="hero-trust-footer">
+          <div class="avatars"><span>AK</span><span>PM</span><span>RS</span><span>NR</span></div>
+          <p>🔒 Mentors verified from <b>IIIT Hyderabad</b>. General program tracking score evaluated at ⭐ <b>4.8/5 stars</b>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tracks">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Choose Your Specialization</span>
+      <h2>One internship, <span class="accent">four</span> production-grade paths</h2>
+      <p>Every track pairs a real dataset or codebase with an engineer who has shipped live code — not theoretical slides.</p>
+    </div>
+
+    <div class="matrix-grid">
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">📊</div>
+            <h3>Data Science &amp; AI/ML</h3>
+          </div>
+          <p>Work with anonymized, real business datasets — not clean toy CSVs — to build models designed to survive chaotic real-world inputs.</p>
+          <ul class="matrix-skills">
+            <li>Python, Pandas &amp; NumPy workflow processing</li>
+            <li>Machine Learning with Scikit-learn systems</li>
+            <li>Deep learning foundations &amp; deployment infrastructure</li>
+            <li>MLOps basics — production logging and metrics monitoring</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">💻</div>
+            <h3>Full-Stack Development</h3>
+          </div>
+          <p>Ship a fully deployed application infrastructure, not a local build—spanning interfaces to databases and fully integrated automation loops.</p>
+          <ul class="matrix-skills">
+            <li>HTML, CSS, JavaScript &amp; production React instances</li>
+            <li>Node.js environments, REST API architecture &amp; MongoDB</li>
+            <li>Advanced structural Git branching workflows</li>
+            <li>Integrated CI/CD frameworks for deployment stability</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">🛡️</div>
+            <h3>Cybersecurity &amp; Ethical Hacking</h3>
+          </div>
+          <p>Learn to think precisely like an offensive operator to properly defend assets as a system security engineer within secure target environments.</p>
+          <ul class="matrix-skills">
+            <li>Linux core systems administration &amp; shell commands</li>
+            <li>Advanced network mapping &amp; real vulnerability assessments</li>
+            <li>Sandbox capture-the-flag infrastructure penetration tests</li>
+            <li>Standard formal security audit documentation practices</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">☁️</div>
+            <h3>Cloud, DevOps &amp; SRE</h3>
+          </div>
+          <p>Master configurations that keep contemporary production clusters running smoothly: automation systems, orchestrations, and cluster scaling.</p>
+          <ul class="matrix-skills">
+            <li>Automation integration via GitHub Actions &amp; Jenkins</li>
+            <li>Production container design using Docker &amp; Kubernetes</li>
+            <li>Core structural Linux administrative configuration metrics</li>
+            <li>System load stress testing &amp; regressions analysis profiles</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+    </div>
+    <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT and allied technical branches — no prior placement history required.</p>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="blueprint-split">
+      <div>
+        <div class="section-head left-aligned">
+          <span class="eyebrow">The Program Blueprint</span>
+          <h2>How you progress from <span class="accent">applicant to alumnus</span></h2>
+          <p>A sequential process execution modeled after standard industrial tech team development patterns.</p>
+        </div>
+        
+        <div class="timeline-flow">
+          <div class="v-step">
+            <div class="v-circ">1</div>
+            <h4>Apply &amp; Get Shortlisted</h4>
+            <p>Submit documentation profiles, select technical tracks, and schedule allocation constraints.</p>
+          </div>
+          <div class="v-step">
+            <div class="v-circ">2</div>
+            <h4>Onboard &amp; Access Datasets</h4>
+            <p>Gain instantaneous access to environment credentials, source material hubs, and operational metrics.</p>
+          </div>
+          <div class="v-step">
+            <div class="v-circ">3</div>
+            <h4>Build With a Mentor</h4>
+            <p>Iterate project milestones weekly alongside direct professional engineering feedback vectors.</p>
+          </div>
+          <div class="v-step">
+            <div class="v-circ">4</div>
+            <h4>Certify &amp; Get Referred</h4>
+            <p>Obtain verified identity document credentials, code references, and immediate career deployment routing pipelines.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-head left-aligned">
+          <span class="eyebrow">The Experience Pack</span>
+          <h2>Everything optimized for real capability building</h2>
+          <p>Because structural resume value depends heavily on what you can demo, not just list on paper.</p>
+        </div>
+
+        <div class="feature-compact-grid">
+          <div class="feature-card"><span class="emoji">📁</span><h4>Live Sourced Data</h4><p>Train pipelines on live parameters derived from functional enterprise ecosystems.</p></div>
+          <div class="feature-card"><span class="emoji">🎓</span><h4>IIIT Engineering Leads</h4><p>Direct oversight loops from verified engineering veterans.</p></div>
+          <div class="feature-card"><span class="emoji">🚀</span><h4>Deployable Capstones</h4><p>Own an external portfolio asset link you can easily screen share during evaluation loops.</p></div>
+          <div class="feature-card"><span class="emoji">📝</span><h4>Profile Engineering</h4><p>Structural optimization adjustments applied directly to code repositories and professional networks.</p></div>
+          <div class="feature-card"><span class="emoji">🎤</span><h4>Simulated Assessment</h4><p>Perform live technical evaluations against realistic pressure criteria vectors.</p></div>
+          <div class="feature-card"><span class="emoji">✅</span><h4>Credential Systems</h4><p>Secure formal certification tracks augmented with dedicated performance recommendation letters.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="community">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Engineering Council</span>
+      <h2>Learn from practitioners, <span class="accent">trusted by peers</span></h2>
+      <p>We match domain industry experts directly alongside verified student satisfaction documentation outputs.</p>
+    </div>
+
+    <div class="trust-layout">
+      <div class="mentor-column">
+        <div style="margin-bottom:8px;"><h4 style="margin:0; font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; font-family:'Plus Jakarta Sans', sans-serif;">Active Track Leads</h4></div>
+        
+        <div class="mentor-card-strip">
+          <div class="mentor-avatar">AR</div>
+          <div class="mentor-info">
+            <h4>Ravi Teja</h4>
+            <div class="role">Data Scientist</div>
+            <span class="tag">IIIT Hyderabad</span>
+          </div>
+        </div>
+
+        <div class="mentor-card-strip">
+          <div class="mentor-avatar">KR</div>
+          <div class="mentor-info">
+            <h4>Srikar.M</h4>
+            <div class="role">DevOps Engineer</div>
+            <span class="tag">IIIT Hyderabad '19</span>
+          </div>
+        </div>
+
+        <div class="mentor-card-strip">
+          <div class="mentor-avatar">PS</div>
+          <div class="mentor-info">
+            <h4>Priya Sharma</h4>
+            <div class="role">Security Analyst</div>
+            <span class="tag">IIIT Hyderabad '20</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-column">
+        <div style="margin-bottom:8px;"><h4 style="margin:0; font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; font-family:'Plus Jakarta Sans', sans-serif;">Alumni Verification Reports</h4></div>
+
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="quote">"The project parameters we modified inside our analytics track mapped accurately back to enterprise deployment problems. This completely eclipses standard code tutorials."</p>
+          <div class="testi-who"><img src="Menon.png" alt="Sahitya Menon" class="testi-img"><div><div class="name">Sahitya Menon</div><div class="role">Data Science Track</div></div></div>
+        </div>
+
+        <div class="testi-card">
+          <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="quote">"The container loops built during the SRE track formed the central core theme of my subsequent structural employment screening reviews. Absolutely phenomenal engineering insight loop."</p>
+          <div class="testi-who"><span class="ini">RV</span><div><div class="name">Rohit Verma</div><div class="role">Cloud &amp; DevOps Track</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Program Tiers &amp; Tracks</h2>
+      <p>Select an access framework built for your specific career stage trajectory.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Self-Paced Track</h3>
+        <div class="price">₹4,999</div>
+        <div class="note">Enroll now for early-bird pricing</div>
+        <ul>
+          <li>Recorded content sequences</li>
+          <li>Active dataset matrix access</li>
+          <li>Standard identity system credential</li>
+          <li>Global platform community routing</li>
+          <li class="dim">Live mentor processing loops</li>
+          <li class="dim">Direct agency placement assets</li>
+        </ul>
+        <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
+      </div>
+      <div class="price-card top">
+        <div class="price-badge">TOP SELLER</div>
+        <h3>Live Mentor Track</h3>
+        <div class="price">₹7,999</div>
+        <div class="note">Everything in Self-Paced, plus:</div>
+        <ul>
+          <li>Live active engineering lead syncs</li>
+          <li>Dedicated systemic problem isolation</li>
+          <li>Granular project artifact code review</li>
+          <li>Lifetime baseline core catalog access</li>
+          <li class="dim">Direct agency placement assets</li>
+        </ul>
+        <a href="#apply" class="btn btn-green" style="width:100%;">Apply Now</a>
+      </div>
+      <div class="price-card">
+        <h3>Career Launch Track</h3>
+        <div class="price">₹14,999</div>
+        <div class="note">Everything in Live Mentor, plus:</div>
+        <ul>
+          <li>Integrated enterprise placement routing</li>
+          <li>Simulated verification evaluations</li>
+          <li>1:1 isolated mentor planning deep-dives</li>
+          <li>Direct engineering recommendation validation</li>
+        </ul>
+        <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ambassador">
+  <div class="wrap">
+    <div class="amb-section">
+      <div class="amb-inner">
+        <div>
+          <span class="eyebrow">Earn While You Refer</span>
+          <h2>Become a Campus Ambassador</h2>
+          <p class="lead">Get a unique referral link, earn a payout for every intern who enrolls through you, and build your own leadership profile — at zero cost to join.</p>
+          <ul class="amb-list">
+            <li>Earn ₹500–₹1,000 for every successful enrollment</li>
+            <li>Apply in under 2 minutes, no fees to join</li>
+            <li>Leadership certificate + LinkedIn recommendation</li>
+            <li>Top ambassadors get priority internship offers</li>
+          </ul>
+          <div class="amb-cta">
+            <a href="#apply" class="btn btn-green">Apply to be an Ambassador →</a>
+          </div>
+        </div>
+        <div class="amb-stats">
+          <div class="amb-stat"><div class="num">💸</div><div class="label">Earn Payouts per Referral</div></div>
+          <div class="amb-stat"><div class="num">📜</div><div class="label">Certificate &amp; Recommendations</div></div>
+          <div class="amb-stat"><div class="num">🚀</div><div class="label">Priority Internship Access</div></div>
+          <div class="amb-stat"><div class="num">🌟</div><div class="label">Build Your Leadership Profile</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Knowledge Center</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is the refund policy?<div class="faq-toggle">+</div></div>
+        <div class="faq-a"><p>Refunds are available within the first 7 days of a batch starting, before live sessions or dataset access begin. Reach out to our team for the exact process.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is the certificate recognized by companies?<div class="faq-toggle">+</div></div>
+        <div class="faq-a"><p>The certificate reflects the skills and project you've completed. It carries the most weight when paired with the capstone project you build — that's what most interviewers actually look at.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I do this alongside college or semester exams?<div class="faq-toggle">+</div></div>
+        <div class="faq-a"><p>Yes — the Self-Paced and Live Mentor tracks are designed around 4–6 hours a week, so most students manage this alongside a regular semester.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="apply">
+  <div class="final-cta-inner wrap">
+    <h2>Ready to build something real?</h2>
+    <p>Applications for the July batch close soon — 18 seats left.</p>
+    <div class="ctas">
+      <a href="#" class="btn btn-green">Apply for Internship →</a>
+      <a href="#" class="btn-cta-o">📞 Contact Our Team</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;"><div class="mark" style="background:var(--green); border-radius:10px; width:30px; height:30px; display:inline-flex;"></div> &nbsp;NxtStepEdu</div>
+        <p style="color:#8896A5; font-size:.88rem; line-height:1.7; max-width:260px;">Internships and career tracks built on real datasets, mentored by IIIT Hyderabad graduates.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li>About Us</li><li>Careers</li><li>Blog</li><li>Contact Us</li></ul>
+      </div>
+      <div>
+        <h5>Programs</h5>
+        <ul><li>Data Science &amp; AI/ML</li><li>Web Development</li><li>Cybersecurity</li><li>Cloud &amp; DevOps</li></ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul><li>Privacy Policy</li><li>Terms &amp; Conditions</li><li>Payment &amp; Refund Policy</li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 NxtStepEdu. Built for Indian students.</span>
+      <span>100% safe and secure payments</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll logic
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => nav.classList.toggle("on", scrollY > 20), { passive: true });
+
+  // FAQ Accordion script 
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const a = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll("a[href^='#']").forEach(a => {
+    a.addEventListener("click", e => {
+      const id = a.getAttribute("href");
+      if(id === "#") return;
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:"smooth"});
+    });
+  });
+</script>
+
+</body>
+</html>
