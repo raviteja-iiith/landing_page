@@ -45,13 +45,11 @@
   a{text-decoration:none; color:inherit; transition:color .2s;}
   ul{list-style:none; margin:0; padding:0;}
 
-  /* TYPOGRAPHY */
   h1, h2, h3, h4, .logo, .stat-num, .price {
     font-family:"Plus Jakarta Sans", sans-serif;
     color:var(--ink);
   }
 
-  /* NAV */
   header.nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
     background:rgba(247,244,238,0);
@@ -70,13 +68,12 @@
   }
   .logo{font-size:1.35rem; font-weight:800; display:flex; align-items:center; gap:10px;}
   .logo .mark{
-    width:36px; height:36px; background:var(--green); border-radius:10px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 4px 12px rgba(159,232,112,.4); transition:transform .2s;
+    height:38px; width:auto; display:flex; align-items:center; justify-content:center;
+    transition:transform .2s;
   }
+  .logo .mark img{height:100%; width:auto; display:block; border-radius:8px;}
   .logo:hover .mark{transform:rotate(-6deg) scale(1.05);}
   
-  /* BUTTONS */
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:8px;
     padding:14px 28px; border-radius:50px; font-weight:700; font-size:.95rem;
@@ -102,7 +99,6 @@
   .btn-outline:hover{border-color:var(--green-dark)!important; transform:translateY(-2px);}
   .btn-sm{padding:10px 22px; font-size:.875rem;}
 
-  /* SECTION GLOBALS */
   .section{padding:90px 0; position:relative;}
   .section-head{text-align:center; max-width:680px; margin:0 auto 48px;}
   .section-head.left-aligned {text-align:left; margin:0 0 40px 0; max-width:100%;}
@@ -127,7 +123,6 @@
   .section-head.left-aligned p{margin:0;}
   .divider{height:1px; background:var(--border); border:none; margin:0;}
 
-  /* HERO BLOCK */
   .hero-section {
     min-height:100vh; display:flex; align-items:center; padding:120px 0 80px;
     position:relative; overflow:hidden;
@@ -164,7 +159,6 @@
   .hero-meta b{color:var(--ink); font-weight:700;}
   .hero-meta-div{width:1px; height:24px; background:var(--border);}
 
-  /* HERO SIDEBAR STATS CARD */
   .hero-stats-card {
     background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius);
     padding:36px; box-shadow:var(--shadow-md); transition:all .3s;
@@ -190,7 +184,6 @@
   .hero-trust-footer p {margin:0; font-size:.85rem; color:var(--slate); line-height:1.6;}
   .hero-trust-footer b {color:var(--ink);}
 
-  /* OPEN TRACKS MATRIX LAYOUT */
   #tracks{
     background-image:linear-gradient(rgba(159,232,112,.08) 1px, transparent 1px),
                      linear-gradient(90deg, rgba(159,232,112,.08) 1px, transparent 1px);
@@ -221,8 +214,9 @@
     color:var(--ink); font-size:.6rem; font-weight:800; flex-shrink:0; margin-top:2px;
   }
   .eligibility-note{text-align:center; font-size:.85rem; color:var(--muted); margin-top:40px;}
+  .matrix-grid .matrix-card:nth-child(5){grid-column:1 / -1;}
+  .matrix-grid .matrix-card:nth-child(5) .matrix-skills{columns:2; column-gap:24px;}
 
-  /* INTEGRATED BLUEPRINT SECTION */
   #experience{
     background-image:radial-gradient(rgba(26,42,26,.05) 1.5px, transparent 1.5px);
     background-size:32px 32px; background-color:var(--cream2);
@@ -230,7 +224,6 @@
   }
   .blueprint-split {display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
   
-  /* Vertical Timeline */
   .timeline-flow {position:relative; padding-left:40px; margin-top:32px;}
   .timeline-flow::before {
     content:''; position:absolute; left:19px; top:16px; bottom:16px; width:2px;
@@ -248,7 +241,6 @@
   .v-step h4 {font-size:1.1rem; margin:0 0 8px 0; font-weight:800;}
   .v-step p {font-size:.9rem; color:var(--slate); line-height:1.7; margin:0;}
 
-  /* Compact Feature Matrix Block */
   .feature-compact-grid {display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;}
   .feature-card{
     border:1.5px solid var(--border); border-radius:var(--radius); padding:24px;
@@ -262,7 +254,6 @@
   .feature-card h4{font-size:.95rem; margin:0 0 8px; font-weight:800;}
   .feature-card p{font-size:.84rem; color:var(--slate); line-height:1.7; margin:0;}
 
-  /* AUTHORITY TRUST SYNC */
   #community{background:var(--white); border-bottom:1px solid var(--border);}
   .trust-layout {display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px;}
   .mentor-column {display:flex; flex-direction:column; gap:16px;}
@@ -308,7 +299,6 @@
   .testi-who .role{font-size:.78rem; color:var(--muted);}
   .testi-who .testi-img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border);}
 
-  /* PRICING ENGINE */
   #pricing{background:var(--cream); border-bottom:1px solid var(--border);}
   .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;}
   .price-card{
@@ -341,7 +331,6 @@
   .price-card ul li.dim{color:var(--muted);}
   .price-card ul li.dim::before{content:"—"; background:transparent; color:var(--muted); font-size:.8rem;}
 
-  /* CAMPUS AMBASSADOR BANNER */
   #ambassador{padding:60px 0;}
   .amb-section{
     background:var(--ink); color:var(--white); border-radius:24px; padding:80px 44px; margin:0 auto;
@@ -372,7 +361,6 @@
   .amb-stat .label{font-size:.82rem; color:#8896A5; font-weight:500;}
   .amb-cta{display:flex; gap:14px; flex-wrap:wrap;}
 
-  /* FAQ SYSTEM */
   #faq{
     background-image:linear-gradient(rgba(26,42,26,.04) 1px, transparent 1px),
                      linear-gradient(90deg, rgba(26,42,26,.04) 1px, transparent 1px);
@@ -398,7 +386,6 @@
   .faq-a{max-height:0; overflow:hidden; transition:max-height .4s ease;}
   .faq-a p{padding:0 24px 24px; margin:0; font-size:.9rem; color:var(--slate); line-height:1.8;}
 
-  /* FINAL CTA */
   .final-cta{
     text-align:center; padding:100px 24px; position:relative; overflow:hidden;
     background:var(--ink); background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
@@ -419,7 +406,6 @@
   }
   .btn-cta-o:hover{border-color:rgba(255,255,255,.5)!important; background:rgba(255,255,255,.06); transform:translateY(-2px);}
 
-  /* FOOTER */
   footer{background:var(--ink); border-top:1px solid rgba(255,255,255,.08); padding:60px 0 32px;}
   .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
   .foot-grid .logo{color:var(--white);}
@@ -431,7 +417,6 @@
     font-size:.85rem; color:#6B7A8A; padding-top:32px; border-top:1px solid rgba(255,255,255,.08);
   }
 
-  /* RESPONSIVE */
   @media (max-width:1024px){
     .pricing-grid{grid-template-columns:repeat(2, 1fr);}
   }
@@ -444,6 +429,7 @@
     .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
     .section-head.left-aligned {text-align:center;}
     .pricing-grid{grid-template-columns: 1fr; max-width:500px; margin:0 auto;}
+    .matrix-grid .matrix-card:nth-child(5) .matrix-skills{columns:1;}
   }
   @media (max-width:640px) {
     .section{padding:60px 0;}
@@ -462,7 +448,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="logo" href="#">
-      <div class="mark"></div>
+      <div class="mark"><img src="brochure/lockedin_logo.png" alt="NxtStepEdu logo"></div>
       NxtStepEdu
     </a>
     <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform"
@@ -509,7 +495,7 @@
       <div class="hero-stats-card">
         <h3>About Us</h3>
         <div class="mini-stat-grid">
-          <div class="m-stat"><div class="num">4</div><div class="label">Tracks Offered</div></div>
+          <div class="m-stat"><div class="num">5</div><div class="label">Tracks Offered</div></div>
           <div class="m-stat"><div class="num">July '26</div><div class="label">Second Cohort</div></div>
         </div>
         <div class="hero-trust-footer">
@@ -524,7 +510,7 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Choose Your Specialization</span>
-      <h2>One internship, <span class="accent">four</span> project-based paths</h2>
+      <h2>One internship, <span class="accent">five</span> project-based paths</h2>
       <p>Every track pairs a sample dataset or codebase with a structured curriculum and mentor support — built for learning by doing.</p>
     </div>
 
@@ -592,6 +578,23 @@
             <li>Container fundamentals with Docker</li>
             <li>Core Linux administration</li>
             <li>Intro to load testing concepts</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">🎮</div>
+            <h3>AR/VR, Game Dev &amp; VFX</h3>
+          </div>
+          <p>Build an immersive experience or playable prototype — from core mechanics and interaction design to visual effects polish.</p>
+          <ul class="matrix-skills">
+            <li>Unity or Unreal Engine fundamentals</li>
+            <li>3D modeling, animation &amp; VFX basics</li>
+            <li>AR/VR interaction design principles</li>
+            <li>Game mechanics, scripting &amp; playtesting</li>
           </ul>
         </div>
         <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
@@ -843,7 +846,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo" style="margin-bottom:12px;"><div class="mark" style="background:var(--green); border-radius:10px; width:30px; height:30px; display:inline-flex;"></div> &nbsp;NxtStepEdu</div>
+        <div class="logo" style="margin-bottom:12px;"><div class="mark"><img src="brochure/lockedin_logo.png" alt="NxtStepEdu logo"></div> &nbsp;NxtStepEdu</div>
         <p style="color:#8896A5; font-size:.88rem; line-height:1.7; max-width:260px;">Project-based internship tracks with structured mentorship, for students in India.</p>
         <p style="color:#6B7A8A; font-size:.8rem; line-height:1.7; max-width:260px; margin-top:12px;">[Registered business name / entity — add once available]<br>[Business address]<br>support@nxtstepedu.example</p>
       </div>
@@ -853,7 +856,7 @@
       </div>
       <div>
         <h5>Programs</h5>
-        <ul><li>Data Science &amp; AI/ML</li><li>Web Development</li><li>Cybersecurity</li><li>Cloud &amp; DevOps</li></ul>
+        <ul><li>Data Science &amp; AI/ML</li><li>Web Development</li><li>Cybersecurity</li><li>Cloud &amp; DevOps</li><li>AR/VR, Game Dev &amp; VFX</li></ul>
       </div>
       <div>
         <h5>Legal</h5>
@@ -868,11 +871,9 @@
 </footer>
 
 <script>
-  // Nav scroll logic
   const nav = document.getElementById("nav");
   window.addEventListener("scroll", () => nav.classList.toggle("on", scrollY > 20), { passive: true });
 
-  // FAQ Accordion script 
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
@@ -891,7 +892,6 @@
     });
   });
 
-  // Smooth scroll for anchors
   document.querySelectorAll("a[href^='#']").forEach(a => {
     a.addEventListener("click", e => {
       const id = a.getAttribute("href");
