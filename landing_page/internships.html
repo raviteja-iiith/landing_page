@@ -91,8 +91,25 @@
   .btn-green{
     background:var(--green); color:var(--ink);
     box-shadow:0 8px 28px rgba(159,232,112,.3);
+    position:relative; overflow:hidden; isolation:isolate;
+    animation:btnGlowPulse 2.6s ease-in-out infinite;
   }
-  .btn-green:hover{transform:translateY(-3px); box-shadow:0 14px 40px rgba(159,232,112,.45);}
+  .btn-green::before{
+    content:""; position:absolute; top:0; left:-60%; width:45%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.75), transparent);
+    transform:skewX(-20deg); transition:left .65s ease; z-index:1; pointer-events:none;
+  }
+  .btn-green:hover{
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 16px 46px rgba(159,232,112,.6), 0 0 0 4px rgba(159,232,112,.18);
+    animation-play-state:paused;
+  }
+  .btn-green:hover::before{left:130%;}
+  .btn-green:active{transform:translateY(-1px) scale(.98);}
+  @keyframes btnGlowPulse{
+    0%,100%{box-shadow:0 8px 28px rgba(159,232,112,.3);}
+    50%{box-shadow:0 8px 34px rgba(159,232,112,.55), 0 0 0 6px rgba(159,232,112,.12);}
+  }
   
   .btn-outline{
     background:var(--white); color:var(--ink); border:1.5px solid var(--border)!important;
@@ -485,7 +502,7 @@
     <div class="hero-content relative-z">
       <div class="eyebrow-pill">Applications open for July batch</div>
       <h1>Real project work.<br>Not just <span class="accent">certificates.</span></h1>
-      <p class="sub">Work on sample datasets and build a capstone project you can show off, with structured mentorship from working engineers across foundational tech domains.</p>
+      <p class="sub">Work on production-ready datasets and build a capstone project you can show off, with structured mentorship from working engineers across foundational tech domains.</p>
       <div class="hero-ctas">
         <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform"
    target="_blank"
@@ -509,13 +526,13 @@
     
     <div class="hero-sidebar relative-z">
       <div class="hero-stats-card">
-        <h3>About Us</h3>
+        <h3 style="display:flex; align-items:center; gap:10px;"><img src="brochure/Lockedin_logo.png" alt="LockedIn" style="height:26px; width:auto; border-radius:6px;"></h3>
         <div class="mini-stat-grid">
           <div class="m-stat"><div class="num">5</div><div class="label">Tracks Offered</div></div>
           <div class="m-stat"><div class="num">July '26</div><div class="label">Second Cohort</div></div>
         </div>
         <div class="hero-trust-footer">
-          <p>Lockedin is a flagship internship and training course, specially designed with experts from the industry to make sure students get hands-on training and exposure to real world projects and go-to-market strategies.</p>
+          <p>A flagship internship and training program, specially designed with experts from the industry to make sure students get hands-on training and exposure to real world projects and go-to-market strategies.</p>
         </div>
       </div>
     </div>
@@ -711,14 +728,15 @@
     <div class="pricing-grid">
       <div class="price-card">
         <h3>Self-Paced Track</h3>
-        <div class="price">₹4,999</div>
+        <div class="price">₹2,999</div>
         <div class="note">Introductory pricing for our first cohort</div>
         <ul>
           <li>Recorded content sequences</li>
           <li>Sample dataset &amp; project brief access</li>
+          <li>Notes, templates &amp; practice questions</li>
           <li>Completion certificate</li>
-          <li>Community access</li>
           <li class="dim">Live mentor sessions</li>
+          <li class="dim">Community access</li>
           <li class="dim">Placement support</li>
         </ul>
         <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
@@ -726,26 +744,31 @@
       <div class="price-card top">
         <div class="price-badge">MOST CHOSEN</div>
         <h3>Live Mentor Track</h3>
-        <div class="price">₹7,999</div>
-        <div class="note">Everything in Self-Paced, plus:</div>
+        <div class="price">₹4,999</div>
+        <div class="note">Our flagship program</div>
         <ul>
-          <li>Weekly live mentor sessions</li>
-          <li>1:1 doubt-solving support</li>
-          <li>Project code review</li>
-          <li>Lifetime access to course material</li>
-          <li class="dim">Placement support</li>
+          <li>Live instructor-led sessions + recordings</li>
+          <li>Dedicated mentor — weekly 1:1 &amp; doubt support</li>
+          <li>Structured week-by-week curriculum &amp; assessments</li>
+          <li>Real-world capstone project + GitHub portfolio</li>
+          <li>Resume builder + LinkedIn profile enhancement</li>
+          <li>AI-powered resume checker</li>
+          <li>Internship offer &amp; completion certificate</li>
+          <li>Private community &amp; peer network</li>
         </ul>
         <a href="#apply" class="btn btn-green" style="width:100%;">Apply Now</a>
       </div>
       <div class="price-card">
         <h3>Career Launch Track</h3>
-        <div class="price">₹14,999</div>
+        <div class="price">₹8,999</div>
         <div class="note">Everything in Live Mentor, plus:</div>
         <ul>
-          <li>Resume &amp; LinkedIn review</li>
-          <li>Mock technical interviews</li>
-          <li>1:1 career planning session</li>
-          <li>Mentor reference letter on request</li>
+          <li>Career assessment &amp; personalized roadmap</li>
+          <li>Soft skills &amp; business communication training</li>
+          <li>Mock technical &amp; HR interviews with feedback</li>
+          <li>Placement assistance &amp; job referrals</li>
+          <li>Guest lectures &amp; industry case studies</li>
+          <li>Letter of Recommendation for top performers</li>
         </ul>
         <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
       </div>
