@@ -6,7 +6,7 @@
 <title>NxtStepEdu — Work With Us | Internships</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
@@ -65,15 +65,15 @@
   }
   .nav-inner{
     height:72px; display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:12px;
   }
-  .logo{font-size:1.35rem; font-weight:800; display:flex; align-items:center; gap:10px;}
+  .logo{font-size:1.35rem; font-weight:800; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
   .logo .mark{
     height:38px; width:auto; display:flex; align-items:center; justify-content:center;
-    transition:transform .2s;
+    transition:transform .2s; flex-shrink:0;
   }
   .logo .mark img{height:100%; width:auto; display:block; border-radius:8px;}
-  .logo i{font-family:"Dancing Script", cursive; font-style:normal; font-weight:600; font-size:1.25em; margin-right:2px;}
-  .logo i{font-family:"Dancing Script", cursive; font-style:normal; font-weight:600; font-size:1.25em; margin-right:2px;}
+  .logo i{font-family:"Playfair Display", serif; font-style:italic; font-weight:500; font-size:.95em; margin-right:2px; color:var(--slate);}
   .logo:hover .mark{transform:rotate(-6deg) scale(1.05);}
   
   .btn{
@@ -126,7 +126,7 @@
   .divider{height:1px; background:var(--border); border:none; margin:0;}
 
   .hero-section {
-    min-height:100vh; display:flex; align-items:center; padding:120px 0 80px;
+    min-height:100vh; display:flex; align-items:center; padding:140px 0 80px;
     position:relative; overflow:hidden;
     background-image:radial-gradient(rgba(26,42,26,.07) 1.5px, transparent 1.5px);
     background-size:28px 28px;
@@ -236,12 +236,14 @@
   .v-circ {
     position:absolute; left:-40px; top:0; transform:translateX(-50%);
     width:40px; height:40px; border-radius:50%; background:var(--green);
-    color:var(--ink); font-weight:800; font-size:1.1rem; font-family:"Plus Jakarta Sans", sans-serif;
+    color:var(--ink); font-weight:800; font-size:.95rem; font-family:"Plus Jakarta Sans", sans-serif;
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 0 0 8px rgba(159,232,112,.18);
   }
-  .v-step h4 {font-size:1.1rem; margin:0 0 8px 0; font-weight:800;}
-  .v-step p {font-size:.9rem; color:var(--slate); line-height:1.7; margin:0;}
+  .v-step h4 {font-size:1.1rem; margin:0 0 10px 0; font-weight:800;}
+  .v-step ul.v-points{display:flex; flex-direction:column; gap:8px;}
+  .v-step ul.v-points li{font-size:.9rem; color:var(--slate); line-height:1.7; display:flex; gap:8px; align-items:flex-start;}
+  .v-step ul.v-points li::before{content:"→"; color:var(--green-dark); font-weight:800; flex-shrink:0;}
 
   .feature-compact-grid {display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;}
   .feature-card{
@@ -421,27 +423,39 @@
 
   @media (max-width:1024px){
     .pricing-grid{grid-template-columns:repeat(2, 1fr);}
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-content {text-align:center; display:flex; flex-direction:column; align-items:center;}
+    .hero-ctas, .hero-meta {justify-content:center;}
+    .hero-sidebar{max-width:460px; margin:0 auto; width:100%;}
   }
   @media (max-width:960px){
-    .hero-grid, .matrix-grid, .blueprint-split, .trust-layout, .foot-grid {grid-template-columns: 1fr;}
+    .matrix-grid, .blueprint-split, .trust-layout, .foot-grid {grid-template-columns: 1fr;}
     .amb-inner{grid-template-columns:1fr;}
-    .hero-content {text-align: center; display:flex; flex-direction:column; align-items:center;}
-    .hero-ctas, .hero-meta {justify-content: center;}
     .hero-meta-div {display:none;}
     .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
     .section-head.left-aligned {text-align:center;}
     .pricing-grid{grid-template-columns: 1fr; max-width:500px; margin:0 auto;}
     .matrix-grid .matrix-card:nth-child(5) .matrix-skills{columns:1;}
+    .nav-inner{justify-content:center; text-align:center;}
   }
   @media (max-width:640px) {
     .section{padding:60px 0;}
+    .hero-section{padding:130px 0 60px;}
     .feature-compact-grid {grid-template-columns: 1fr;}
     .amb-section{padding:56px 24px;}
     .amb-stats {grid-template-columns: 1fr;}
     .btn{width:100%;}
+    .hero-ctas{flex-direction:column;}
     .hero-stats-card{padding:24px;}
     .matrix-card{padding:24px;}
     .price-card{padding:32px 24px;}
+    .foot-bottom{flex-direction:column; align-items:flex-start;}
+    .mini-stat-grid{grid-template-columns:1fr 1fr; gap:14px;}
+    .m-stat .num{font-size:1.5rem;}
+  }
+  @media (max-width:420px){
+    .nav-inner{height:auto; padding:14px 0;}
+    .eyebrow-pill{font-size:.72rem;}
   }
 </style>
 </head>
@@ -469,7 +483,7 @@
   </div>
   <div class="wrap hero-grid">
     <div class="hero-content relative-z">
-      <div class="eyebrow-pill">Applications open — July batch</div>
+      <div class="eyebrow-pill">Applications open for July batch</div>
       <h1>Real project work.<br>Not just <span class="accent">certificates.</span></h1>
       <p class="sub">Work on sample datasets and build a capstone project you can show off, with structured mentorship from working engineers across foundational tech domains.</p>
       <div class="hero-ctas">
@@ -501,7 +515,7 @@
           <div class="m-stat"><div class="num">July '26</div><div class="label">Second Cohort</div></div>
         </div>
         <div class="hero-trust-footer">
-          <p>We're a new platform building our first cohort. Mentor bios and past-cohort outcomes will be added here as we complete batches — see the FAQ below for what's confirmed today.</p>
+          <p>Lockedin is a flagship internship and training course, specially designed with experts from the industry to make sure students get hands-on training and exposure to real world projects and go-to-market strategies.</p>
         </div>
       </div>
     </div>
@@ -513,7 +527,7 @@
     <div class="section-head">
       <span class="eyebrow">Choose Your Specialization</span>
       <h2>One internship, <span class="accent">five</span> project-based paths</h2>
-      <p>Every track pairs a sample dataset or codebase with a structured curriculum and mentor support — built for learning by doing.</p>
+      <p>Every track pairs a sample dataset or codebase with a structured curriculum and mentor support, built for learning by doing.</p>
     </div>
 
     <div class="matrix-grid">
@@ -523,7 +537,7 @@
             <div class="matrix-icon">📊</div>
             <h3>Data Science &amp; AI/ML</h3>
           </div>
-          <p>Work with realistic, messy sample datasets — not clean toy CSVs — to build models designed to handle real-world inputs.</p>
+          <p>Work with realistic, messy sample datasets, not clean toy CSVs, to build models designed to handle real-world inputs.</p>
           <ul class="matrix-skills">
             <li>Python, Pandas &amp; NumPy workflow processing</li>
             <li>Machine Learning with Scikit-learn systems</li>
@@ -540,7 +554,7 @@
             <div class="matrix-icon">💻</div>
             <h3>Full-Stack Development</h3>
           </div>
-          <p>Ship a fully deployed personal project — spanning interface, database, and a basic automation pipeline.</p>
+          <p>Ship a fully deployed personal project, spanning interface, database, and a basic automation pipeline.</p>
           <ul class="matrix-skills">
             <li>HTML, CSS, JavaScript &amp; React fundamentals</li>
             <li>Node.js, REST API design &amp; MongoDB</li>
@@ -591,7 +605,7 @@
             <div class="matrix-icon">🎮</div>
             <h3>AR/VR, Game Dev &amp; VFX</h3>
           </div>
-          <p>Build an immersive experience or playable prototype — from core mechanics and interaction design to visual effects polish.</p>
+          <p>Build an immersive experience or playable prototype, from core mechanics and interaction design to visual effects polish.</p>
           <ul class="matrix-skills">
             <li>Unity or Unreal Engine fundamentals</li>
             <li>3D modeling, animation &amp; VFX basics</li>
@@ -602,7 +616,7 @@
         <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
       </div>
     </div>
-    <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT and allied technical branches — no prior placement history required.</p>
+    <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT and allied technical branches, no prior placement history required.</p>
   </div>
 </section>
 
@@ -612,30 +626,29 @@
       <div>
         <div class="section-head left-aligned">
           <span class="eyebrow">The Program Blueprint</span>
-          <h2>How you progress from <span class="accent">applicant to alumnus</span></h2>
-          <p>A structured, week-by-week path modeled on how real product teams work.</p>
+          <h2>Two months from <span class="accent">applicant to alumnus</span></h2>
+          <p>A structured, month-by-month path modeled on how real product teams work.</p>
         </div>
         
         <div class="timeline-flow">
           <div class="v-step">
             <div class="v-circ">1</div>
-            <h4>Apply &amp; Get Shortlisted</h4>
-            <p>Submit your details, pick a track, and get matched to a batch based on seat availability.</p>
+            <h4>Month 1: Foundation &amp; Mentorship</h4>
+            <ul class="v-points">
+              <li>Live interactive sessions with mentors who bring 5+ years of experience, followed by one-on-one doubt clearing sessions</li>
+              <li>Lifetime access to recorded sessions and study material through the LMS</li>
+              <li>Curriculum built around concepts and platforms shaped by inputs from affiliated industry experts</li>
+            </ul>
           </div>
           <div class="v-step">
             <div class="v-circ">2</div>
-            <h4>Onboard &amp; Get Access</h4>
-            <p>Get access to your curriculum, sample datasets or starter repo, and project brief.</p>
-          </div>
-          <div class="v-step">
-            <div class="v-circ">3</div>
-            <h4>Build With a Mentor</h4>
-            <p>Work through weekly milestones with structured check-ins and feedback on your project.</p>
-          </div>
-          <div class="v-step">
-            <div class="v-circ">4</div>
-            <h4>Complete &amp; Get Certified</h4>
-            <p>Finish your capstone project and receive a completion certificate documenting the work you did.</p>
+            <h4>Month 2: Live Projects &amp; Certification</h4>
+            <ul class="v-points">
+              <li>Two live industry projects: one major project and one minor project</li>
+              <li>Mentors act as project leads, guiding interns through to project completion</li>
+              <li>An additional project can be requested for personal development</li>
+              <li>Finish with a completion certificate documenting your track and project outcome</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -675,7 +688,7 @@
         <div style="margin-bottom:8px;"><h4 style="margin:0; font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; font-family:'Plus Jakarta Sans', sans-serif;">What We're Building Toward</h4></div>
 
         <div class="testi-card">
-          <p class="quote" style="font-style:italic;">We're onboarding our first cohort this July. Once interns complete the program, we'll publish real testimonials and outcomes here — with names, links, and results you can verify.</p>
+          <p class="quote" style="font-style:italic;">We're onboarding our first cohort this July. Once interns complete the program, we'll publish real testimonials and outcomes here, with names, links, and results you can verify.</p>
         </div>
 
         <div class="testi-card">
@@ -778,24 +791,20 @@
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">Is NxtStepEdu a registered company?<div class="faq-toggle">+</div></div>
-        <div class="faq-a"><p>NxtStepEdu is currently run as a small, independent education initiative. We're transparent that we're not a large corporation — full registration and legal entity details, once finalized, will be published here and in our footer.</p></div>
-      </div>
-      <div class="faq-item">
         <div class="faq-q">What is the refund policy?<div class="faq-toggle">+</div></div>
-        <div class="faq-a"><p>Refunds are available within the first 7 days of a batch starting, before live sessions or dataset access begin. Email us and we'll process it within 5–7 business days.</p></div>
+        <div class="faq-a"><p>Refunds are available within the first 7 days of a batch starting, before live sessions or dataset access begin. Email us and we'll process it within 5 to 7 business days.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Is the certificate recognized by companies?<div class="faq-toggle">+</div></div>
-        <div class="faq-a"><p>It's a completion certificate, not an accredited degree or formal placement guarantee. It documents the track and project you completed — most interviewers care more about the project itself than the certificate.</p></div>
+        <div class="faq-a"><p>It's a completion certificate, not an accredited degree or formal placement guarantee. It documents the track and project you completed; most interviewers care more about the project itself than the certificate.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I do this alongside college or semester exams?<div class="faq-toggle">+</div></div>
-        <div class="faq-a"><p>Yes — the Self-Paced and Live Mentor tracks are designed around 4–6 hours a week, so most students manage this alongside a regular semester.</p></div>
+        <div class="faq-a"><p>Yes, the Self-Paced and Live Mentor tracks are designed around 4 to 6 hours a week, so most students manage this alongside a regular semester.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Who are the mentors, exactly?<div class="faq-toggle">+</div></div>
-        <div class="faq-a"><p>Mentors are working engineers we've personally vetted. We share full names, LinkedIn profiles, and current employers with applicants once they're shortlisted, so you can verify their background yourself before paying.</p></div>
+        <div class="faq-a"><p>Mentors are working engineers we've personally vetted. Once you've enrolled, we share full names, LinkedIn profiles, and current employers with you, so you can verify their background yourself.</p></div>
       </div>
     </div>
   </div>
@@ -812,7 +821,7 @@
    class="btn btn-green">
     Apply for Internship →
 </a>
-      <a href="#" class="btn-cta-o">📞 Contact Our Team</a>
+      <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn-cta-o">📞 Contact Our Team</a>
     </div>
   </div>
 </section>
@@ -823,11 +832,11 @@
       <div>
         <div class="logo" style="margin-bottom:12px;"><div class="mark"><img src="brochure/Lockedin_logo.png" alt="NxtStepEdu logo"></div> &nbsp;<i>by</i> NxtStepEdu</div>
         <p style="color:#8896A5; font-size:.88rem; line-height:1.7; max-width:260px;">Project-based internship tracks with structured mentorship, for students in India.</p>
-        <p style="color:#6B7A8A; font-size:.8rem; line-height:1.7; max-width:260px; margin-top:12px;">LockedIn is a registered Trademark of NxtstepEdu<br>CI,Block 23-C,IIIT Hyderabad<br>support@nxtstepedu.</p>
+        <p style="color:#6B7A8A; font-size:.8rem; line-height:1.7; max-width:260px; margin-top:12px;">LockedIn is a registered Trademark of NxtstepEdu<br>CI, Block 23-C, IIIT Hyderabad<br>support@nxtstepedu.in</p>
       </div>
       <div>
         <h5>Company</h5>
-        <ul><li>About Us</li><li>Careers</li><li>Blog</li><li>Contact Us</li></ul>
+        <ul><li>About Us</li><li>Careers</li><li>Blog</li></ul>
       </div>
       <div>
         <h5>Programs</h5>
