@@ -561,7 +561,7 @@
             <li>MLOps basics — logging and metrics monitoring</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="Data Science & AI/ML">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -578,7 +578,7 @@
             <li>Intro to CI/CD for deployment</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="Full-Stack Development">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -595,7 +595,7 @@
             <li>Basic security audit documentation practices</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="Cybersecurity & Ethical Hacking">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -612,7 +612,7 @@
             <li>Intro to load testing concepts</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="Cloud, DevOps & SRE">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -629,7 +629,7 @@
             <li>Game mechanics, scripting &amp; playtesting</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="AR/VR, Game Dev & VFX">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -646,7 +646,7 @@
             <li>Intro to ASIC/FPGA design flow &amp; simulation</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="PCB Design & VLSI">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -663,7 +663,7 @@
             <li>Basic robotics: motor control &amp; automation logic</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+        <a href="#apply" class="btn btn-outline btn-sm" data-track="IoT & Robotics">Select Path</a>
       </div>
     </div>
     <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT, ECE and allied technical branches, no prior placement history required.</p>
@@ -772,7 +772,7 @@
           <li class="dim">Community access</li>
           <li class="dim">Placement support</li>
         </ul>
-        <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
+        <button type="button" class="btn btn-outline" style="width:100%;" data-plan="self-paced">Pay Now</button>
       </div>
       <div class="price-card top">
         <div class="price-badge">MOST CHOSEN</div>
@@ -789,7 +789,7 @@
           <li>Internship offer &amp; completion certificate</li>
           <li>Private community &amp; peer network</li>
         </ul>
-        <a href="#apply" class="btn btn-green" style="width:100%;">Apply Now</a>
+        <button type="button" class="btn btn-green" style="width:100%;" data-plan="live-mentor">Pay Now</button>
       </div>
       <div class="price-card">
         <h3>Career Launch Track</h3>
@@ -803,7 +803,7 @@
           <li>Guest lectures &amp; industry case studies</li>
           <li>Letter of Recommendation for top performers</li>
         </ul>
-        <a href="#apply" class="btn btn-outline" style="width:100%;">Apply Now</a>
+        <button type="button" class="btn btn-outline" style="width:100%;" data-plan="career-launch">Pay Now</button>
       </div>
     </div>
     <p style="text-align:center; font-size:.82rem; color:var(--muted); margin-top:24px;">Full refund available within 7 days of your batch start date, before mentor sessions or dataset access begin. See our refund policy for details.</p>
@@ -871,12 +871,7 @@
     <h2>Ready to build something real?</h2>
     <p>Applications for the July batch are open now.</p>
     <div class="ctas">
-      <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-green">
-    Apply for Internship →
-</a>
+      <button type="button" class="btn btn-green" id="finalCtaApplyBtn">Apply for Internship →</button>
       <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn-cta-o">📞 Contact Our Team</a>
     </div>
   </div>
@@ -935,7 +930,7 @@
   document.querySelectorAll("a[href^='#']").forEach(a => {
     a.addEventListener("click", e => {
       const id = a.getAttribute("href");
-      if(id === "#") return;
+      if(id === "#" || id === "#apply") return;
       e.preventDefault();
       document.querySelector(id)?.scrollIntoView({behavior:"smooth"});
     });
