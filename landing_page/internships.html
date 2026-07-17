@@ -233,8 +233,8 @@
     color:var(--ink); font-size:.6rem; font-weight:800; flex-shrink:0; margin-top:2px;
   }
   .eligibility-note{text-align:center; font-size:.85rem; color:var(--muted); margin-top:40px;}
-  .matrix-grid .matrix-card:nth-child(5){grid-column:1 / -1;}
-  .matrix-grid .matrix-card:nth-child(5) .matrix-skills{columns:2; column-gap:24px;}
+  .matrix-grid .matrix-card.full{grid-column:1 / -1;}
+  .matrix-grid .matrix-card.full .matrix-skills{columns:2; column-gap:24px;}
 
   #experience{
     background-image:radial-gradient(rgba(26,42,26,.05) 1.5px, transparent 1.5px);
@@ -452,7 +452,7 @@
     .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
     .section-head.left-aligned {text-align:center;}
     .pricing-grid{grid-template-columns: 1fr; max-width:500px; margin:0 auto;}
-    .matrix-grid .matrix-card:nth-child(5) .matrix-skills{columns:1;}
+    .matrix-grid .matrix-card.full .matrix-skills{columns:1;}
     .nav-inner{justify-content:center; text-align:center;}
   }
   @media (max-width:640px) {
@@ -527,7 +527,7 @@
       <div class="hero-stats-card"><h3>About</h3>
         <h3 style="display:flex; align-items:center; gap:10px;"><img src="brochure/Lockedin_logo.png" alt="LockedIn" style="height:26px; width:auto; border-radius:6px;"></h3>
         <div class="mini-stat-grid">
-          <div class="m-stat"><div class="num">5</div><div class="label">Tracks Offered</div></div>
+          <div class="m-stat"><div class="num">7</div><div class="label">Tracks Offered</div></div>
           <div class="m-stat"><div class="num">July '26</div><div class="label">Special Cohort</div></div>
         </div>
         <div class="hero-trust-footer">
@@ -542,7 +542,7 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Choose Your Specialization</span>
-      <h2>One internship, <span class="accent">five</span> project-based paths</h2>
+      <h2>One internship, <span class="accent">seven</span> project-based paths</h2>
       <p>Every track pairs a sample dataset or codebase with a structured curriculum and mentor support, built for learning by doing.</p>
     </div>
 
@@ -631,8 +631,42 @@
         </div>
         <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
       </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">🔌</div>
+            <h3>PCB Design &amp; VLSI</h3>
+          </div>
+          <p>Go from schematic to fabricated board, and get an intro to how chips themselves are designed at the silicon level.</p>
+          <ul class="matrix-skills">
+            <li>Schematic capture &amp; PCB layout (KiCad/Eagle)</li>
+            <li>Component selection &amp; datasheet reading</li>
+            <li>Digital logic design &amp; Verilog/VHDL basics</li>
+            <li>Intro to ASIC/FPGA design flow &amp; simulation</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
+
+      <div class="matrix-card">
+        <div>
+          <div class="matrix-head">
+            <div class="matrix-icon">🤖</div>
+            <h3>IoT &amp; Robotics</h3>
+          </div>
+          <p>Build a connected, sensor-driven device or robot, from embedded firmware through to a live cloud dashboard.</p>
+          <ul class="matrix-skills">
+            <li>Microcontroller programming (Arduino/ESP32)</li>
+            <li>Sensors, actuators &amp; embedded C/C++</li>
+            <li>IoT protocols (MQTT/HTTP) &amp; cloud dashboards</li>
+            <li>Basic robotics: motor control &amp; automation logic</li>
+          </ul>
+        </div>
+        <a href="#apply" class="btn btn-outline btn-sm">Select Path</a>
+      </div>
     </div>
-    <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT and allied technical branches, no prior placement history required.</p>
+    <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT, ECE and allied technical branches, no prior placement history required.</p>
   </div>
 </section>
 
@@ -862,7 +896,7 @@
       </div>
       <div>
         <h5>Programs</h5>
-        <ul><li>Data Science &amp; AI/ML</li><li>Web Development</li><li>Cybersecurity</li><li>Cloud &amp; DevOps</li><li>AR/VR, Game Dev &amp; VFX</li></ul>
+        <ul><li>Data Science &amp; AI/ML</li><li>Web Development</li><li>Cybersecurity</li><li>Cloud &amp; DevOps</li><li>AR/VR, Game Dev &amp; VFX</li><li>PCB Design &amp; VLSI</li><li>IoT &amp; Robotics</li></ul>
       </div>
       <div>
         <h5>Legal</h5>
