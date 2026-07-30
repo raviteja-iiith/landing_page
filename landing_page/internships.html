@@ -275,7 +275,7 @@
   .feature-card h4{font-size:.95rem; margin:0 0 8px; font-weight:800;}
   .feature-card p{font-size:.84rem; color:var(--slate); line-height:1.7; margin:0;}
 
-  #community{background:var(--white); border-bottom:1px solid var(--border);}
+  #community{background:var(--white);}
   .trust-layout {display:grid; grid-template-columns:1fr; gap:48px; max-width:640px; margin:0 auto;}
   .mentor-column {display:flex; flex-direction:column; gap:16px;}
   .mentor-card-strip {
@@ -320,7 +320,7 @@
   .testi-who .role{font-size:.78rem; color:var(--muted);}
   .testi-who .testi-img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border);}
 
-  #merch{background:var(--cream2); border-bottom:1px solid var(--border);}
+  #merch{background:var(--white);}
   .merch-layout{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
   .merch-img-wrap{
     border-radius:var(--radius); overflow:hidden; border:1.5px solid var(--border);
@@ -339,6 +339,11 @@
     color:var(--ink); font-size:.65rem; font-weight:800; flex-shrink:0;
   }
   .merch-list li b{color:var(--ink);}
+
+  /* Combined mentors + merch row */
+  #community-merch{background:var(--white); border-bottom:1px solid var(--border);}
+  .cm-layout{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .cm-col .section-head.left-aligned{margin-bottom:32px;}
 
   #pricing{background:var(--cream); border-bottom:1px solid var(--border);}
   .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;}
@@ -444,6 +449,7 @@
     padding:14px 32px; border-radius:50px; font-size:.95rem; font-weight:700;
     background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.2)!important;
     font-family:"Plus Jakarta Sans", sans-serif; transition:all .22s; text-decoration:none; display:inline-flex; align-items:center;
+    cursor:pointer;
   }
   .btn-cta-o:hover{border-color:rgba(255,255,255,.5)!important; background:rgba(255,255,255,.06); transform:translateY(-2px);}
 
@@ -458,6 +464,33 @@
     font-size:.85rem; color:#6B7A8A; padding-top:32px; border-top:1px solid rgba(255,255,255,.08);
   }
 
+  /* Contact popup modal */
+  .contact-modal-overlay{
+    position:fixed; inset:0; background:rgba(26,42,26,.55); backdrop-filter:blur(3px);
+    display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;
+  }
+  .contact-modal-overlay.open{display:flex;}
+  .contact-modal{
+    background:var(--white); border-radius:var(--radius); padding:36px 32px; max-width:360px; width:100%;
+    box-shadow:0 20px 60px rgba(26,42,26,.35); position:relative; text-align:left;
+    border:1.5px solid var(--border);
+  }
+  .contact-modal h3{font-size:1.2rem; font-weight:800; margin:0 0 6px;}
+  .contact-modal p.sub{font-size:.85rem; color:var(--slate); margin:0 0 22px;}
+  .contact-modal .c-row{
+    display:flex; align-items:center; gap:12px; padding:14px 16px; border:1.5px solid var(--border);
+    border-radius:var(--radius-sm); margin-bottom:12px; font-size:.92rem; color:var(--ink); font-weight:600;
+  }
+  .contact-modal .c-row .ic{
+    width:34px; height:34px; border-radius:10px; background:var(--green-pale); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:1rem;
+  }
+  .contact-modal-close{
+    position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%;
+    background:var(--cream); border:1.5px solid var(--border); display:flex; align-items:center;
+    justify-content:center; cursor:pointer; font-size:.85rem; color:var(--slate);
+  }
+
   @media (max-width:1024px){
     .pricing-grid{grid-template-columns:repeat(2, 1fr);}
     .hero-grid{grid-template-columns:1fr; gap:40px;}
@@ -466,7 +499,7 @@
     .hero-sidebar{max-width:460px; margin:0 auto; width:100%;}
   }
   @media (max-width:960px){
-    .matrix-grid, .blueprint-split, .trust-layout, .foot-grid, .merch-layout {grid-template-columns: 1fr;}
+    .matrix-grid, .blueprint-split, .trust-layout, .foot-grid, .merch-layout, .cm-layout {grid-template-columns: 1fr;}
     .amb-inner{grid-template-columns:1fr;}
     .hero-meta-div {display:none;}
     .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
@@ -475,6 +508,7 @@
     .matrix-grid .matrix-card.full .matrix-skills{columns:1;}
     .nav-inner{justify-content:center; text-align:center;}
     .merch-layout{gap:32px;}
+    .cm-layout{gap:48px;}
   }
   @media (max-width:640px) {
     .section{padding:60px 0;}
@@ -582,7 +616,7 @@
             <li>MLOps basics — logging and metrics monitoring</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="Data Science & AI/ML">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="Data Science & AI/ML">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -599,7 +633,7 @@
             <li>Intro to CI/CD for deployment</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="Full-Stack Development">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="Full-Stack Development">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -616,7 +650,7 @@
             <li>Basic security audit documentation practices</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="Cybersecurity & Ethical Hacking">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="Cybersecurity & Ethical Hacking">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -633,7 +667,7 @@
             <li>Intro to load testing concepts</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="Cloud, DevOps & SRE">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="Cloud, DevOps & SRE">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -650,7 +684,7 @@
             <li>Game mechanics, scripting &amp; playtesting</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="AR/VR, Game Dev & VFX">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="AR/VR, Game Dev & VFX">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -667,7 +701,7 @@
             <li>Intro to ASIC/FPGA design flow &amp; simulation</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="PCB Design & VLSI">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="PCB Design & VLSI">Select Path</a>
       </div>
 
       <div class="matrix-card">
@@ -684,7 +718,7 @@
             <li>Basic robotics: motor control &amp; automation logic</li>
           </ul>
         </div>
-        <a href="#apply" class="btn btn-outline btn-sm" data-track="IoT & Robotics">Select Path</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-track="IoT & Robotics">Select Path</a>
       </div>
     </div>
     <p class="eligibility-note">Open to engineering students from CSE, CSD, CSW, IT, ECE and allied technical branches, no prior placement history required.</p>
@@ -744,51 +778,49 @@
   </div>
 </section>
 
-<section class="section" id="community">
+<section class="section" id="community-merch">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Our Mentors</span>
-      <h2>Learn from people who <span class="accent">build software for a living</span></h2>
-      <p>Track mentors are working engineers who review your project and unblock you when you're stuck. Select sessions planned with faculty from institutes like IIT/IIIT.</p>
-    </div>
-
-    <div class="trust-layout">
-      
-
-      <div class="testi-column">
-        <div style="margin-bottom:8px;"><h4 style="margin:0; font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; font-family:'Plus Jakarta Sans', sans-serif;">What We're Building Toward</h4></div>
-
-        <div class="testi-card">
-          <p class="quote" style="font-style:italic;">We're onboarding our first cohort this July. Once interns complete the program, we'll publish real testimonials and outcomes here, with names, links, and results you can verify.</p>
+    <div class="cm-layout">
+      <div class="cm-col">
+        <div class="section-head left-aligned">
+          <span class="eyebrow">Our Mentors</span>
+          <h2>Learn from people who <span class="accent">build software</span></h2>
+          <p>Track mentors are working engineers who review your project and unblock you when you're stuck. Select sessions planned with faculty from institutes like IIT/IIIT.</p>
         </div>
 
-        <div class="testi-card">
-          <p class="quote" style="font-style:italic;">Want to see how the program actually runs before committing? Reach out and we're happy to walk you through a sample project brief and mentor call format.</p>
-          <div class="amb-cta" style="margin-top:8px;">
-            <a href="#apply" class="btn btn-outline btn-sm">Ask Us Anything →</a>
+        <div class="trust-layout" style="margin:0; max-width:100%;">
+          <div class="testi-column">
+            <div style="margin-bottom:8px;"><h4 style="margin:0; font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; font-family:'Plus Jakarta Sans', sans-serif;">What We're Building Toward</h4></div>
+
+            <div class="testi-card">
+              <p class="quote" style="font-style:italic;">We're onboarding our first cohort this July. Once interns complete the program, we'll publish real testimonials and outcomes here, with names, links, and results you can verify.</p>
+            </div>
+
+            <div class="testi-card">
+              <p class="quote" style="font-style:italic;">Want to see how the program actually runs before committing? Reach out and we're happy to walk you through a sample project brief and mentor call format.</p>
+              <div class="amb-cta" style="margin-top:8px;">
+                <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Ask Us Anything →</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="merch">
-  <div class="wrap">
-    <div class="merch-layout">
-      <div class="merch-img-wrap">
-        <img src="brochure/merch.png" alt="LockedIn merch — t-shirt, mug and backpack">
-      </div>
-      <div>
-        <span class="eyebrow">Swag That's Actually Yours</span>
-        <h2>Merch and goodies, <span class="accent">on the house</span></h2>
-        <p style="color:var(--slate); font-size:1rem; line-height:1.75;">Every intern who enrolls gets a LockedIn kit shipped to their door, on us, no separate purchase required.</p>
+      <div class="cm-col">
+        <div class="section-head left-aligned">
+          <span class="eyebrow">Swag That's Actually Yours</span>
+          <h2>Merch and goodies, <span class="accent">on the house</span></h2>
+          <p>Every intern who enrolls gets a LockedIn kit shipped to their door, on us, no separate purchase required.</p>
+        </div>
+        <div class="merch-img-wrap" style="margin-bottom:24px;">
+          <img src="brochure/merch.png" alt="LockedIn merch — t-shirt, mug and backpack">
+        </div>
         <ul class="merch-list">
           <li><b>LockedIn T-Shirt</b> — soft cotton, printed logo</li>
           <li><b>Sticker Pack</b> — laptop and notebook-ready</li>
           <li><b>Notebook / Swag Kit</b> — for taking your project notes</li>
         </ul>
-        <a href="#apply" class="btn btn-green">Apply &amp; Claim Your Kit →</a>
+        <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-green">Apply &amp; Claim Your Kit →</a>
       </div>
     </div>
   </div>
@@ -870,7 +902,7 @@
             <li>Completion certificate for the ambassador program itself</li>
           </ul>
           <div class="amb-cta">
-            <a href="#apply" class="btn btn-green">Apply to be an Ambassador →</a>
+            <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-green">Apply to be an Ambassador →</a>
           </div>
         </div>
         <div class="amb-stats">
@@ -916,8 +948,8 @@
     <h2>Ready to build something real?</h2>
     <p>Applications for the July batch are open now.</p>
     <div class="ctas">
-      <button type="button" class="btn btn-green" id="finalCtaApplyBtn">Apply for Internship →</button>
-      <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn-cta-o">📞 Contact Our Team</a>
+      <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-green" id="finalCtaApplyBtn">Apply for Internship →</a>
+      <button type="button" class="btn-cta-o" id="contactUsBtn">📞 Contact Our Team</button>
     </div>
   </div>
 </section>
@@ -950,6 +982,16 @@
   </div>
 </footer>
 
+<div class="contact-modal-overlay" id="contactModalOverlay">
+  <div class="contact-modal">
+    <div class="contact-modal-close" id="contactModalClose">✕</div>
+    <h3>Get in touch</h3>
+    <p class="sub">We usually reply within a few hours.</p>
+    <a class="c-row" href="mailto:support@nxtstepedu.in"><span class="ic">✉️</span> support@nxtstepedu.in</a>
+    <a class="c-row" href="tel:+917799335139"><span class="ic">📞</span> +91 77993 35139</a>
+  </div>
+</div>
+
 <script>
   const nav = document.getElementById("nav");
   window.addEventListener("scroll", () => nav.classList.toggle("on", scrollY > 20), { passive: true });
@@ -979,6 +1021,16 @@
       e.preventDefault();
       document.querySelector(id)?.scrollIntoView({behavior:"smooth"});
     });
+  });
+
+  // Contact popup
+  const contactBtn = document.getElementById("contactUsBtn");
+  const contactOverlay = document.getElementById("contactModalOverlay");
+  const contactClose = document.getElementById("contactModalClose");
+  contactBtn.addEventListener("click", () => contactOverlay.classList.add("open"));
+  contactClose.addEventListener("click", () => contactOverlay.classList.remove("open"));
+  contactOverlay.addEventListener("click", (e) => {
+    if (e.target === contactOverlay) contactOverlay.classList.remove("open");
   });
 </script>
 
