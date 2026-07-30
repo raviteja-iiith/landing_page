@@ -320,6 +320,26 @@
   .testi-who .role{font-size:.78rem; color:var(--muted);}
   .testi-who .testi-img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--border);}
 
+  #merch{background:var(--cream2); border-bottom:1px solid var(--border);}
+  .merch-layout{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .merch-img-wrap{
+    border-radius:var(--radius); overflow:hidden; border:1.5px solid var(--border);
+    box-shadow:var(--shadow-md); background:var(--white);
+  }
+  .merch-img-wrap img{display:block; width:100%; height:auto;}
+  .merch-list{display:flex; flex-direction:column; gap:14px; margin:28px 0 32px;}
+  .merch-list li{
+    display:flex; gap:12px; align-items:center; font-size:.95rem; color:var(--slate);
+    background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius-sm);
+    padding:14px 18px;
+  }
+  .merch-list li::before{
+    content:"✓"; display:flex; align-items:center; justify-content:center;
+    width:22px; height:22px; background:var(--green); border-radius:50%;
+    color:var(--ink); font-size:.65rem; font-weight:800; flex-shrink:0;
+  }
+  .merch-list li b{color:var(--ink);}
+
   #pricing{background:var(--cream); border-bottom:1px solid var(--border);}
   .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;}
   .price-card{
@@ -446,7 +466,7 @@
     .hero-sidebar{max-width:460px; margin:0 auto; width:100%;}
   }
   @media (max-width:960px){
-    .matrix-grid, .blueprint-split, .trust-layout, .foot-grid {grid-template-columns: 1fr;}
+    .matrix-grid, .blueprint-split, .trust-layout, .foot-grid, .merch-layout {grid-template-columns: 1fr;}
     .amb-inner{grid-template-columns:1fr;}
     .hero-meta-div {display:none;}
     .timeline-flow {max-width: 500px; margin: 32px auto 40px;}
@@ -454,6 +474,7 @@
     .pricing-grid{grid-template-columns: 1fr; max-width:500px; margin:0 auto;}
     .matrix-grid .matrix-card.full .matrix-skills{columns:1;}
     .nav-inner{justify-content:center; text-align:center;}
+    .merch-layout{gap:32px;}
   }
   @media (max-width:640px) {
     .section{padding:60px 0;}
@@ -502,7 +523,7 @@
     <div class="hero-content relative-z">
       <div class="eyebrow-pill">Applications open for July batch</div>
       <h1>Real project work.<br>Not just <span class="accent">certificates.</span></h1>
-      <p class="sub">Work on production-ready datasets and build a capstone project you can show off, with structured mentorship from working engineers across foundational tech domains.</p>
+      <p class="sub">Work on production-ready datasets and build a capstone project you can show off, with structured mentorship from working engineers across foundational tech domains. From zero to hero, we make our interns masters of their track.</p>
       <div class="hero-ctas">
         <a href="https://docs.google.com/forms/d/1ZJCBSoWTwznIoAIMaxKHppz3JZhLAVgE6Rrf4RaAWOo/viewform"
    target="_blank"
@@ -728,7 +749,7 @@
     <div class="section-head">
       <span class="eyebrow">Our Mentors</span>
       <h2>Learn from people who <span class="accent">build software for a living</span></h2>
-      <p>Track mentors are working engineers who review your project and unblock you when you're stuck.</p>
+      <p>Track mentors are working engineers who review your project and unblock you when you're stuck. Select sessions planned with faculty from institutes like IIT/IIIT.</p>
     </div>
 
     <div class="trust-layout">
@@ -752,6 +773,27 @@
   </div>
 </section>
 
+<section class="section" id="merch">
+  <div class="wrap">
+    <div class="merch-layout">
+      <div class="merch-img-wrap">
+        <img src="brochure/merch.png" alt="LockedIn merch — t-shirt, mug and backpack">
+      </div>
+      <div>
+        <span class="eyebrow">Swag That's Actually Yours</span>
+        <h2>Merch and goodies, <span class="accent">on the house</span></h2>
+        <p style="color:var(--slate); font-size:1rem; line-height:1.75;">Every intern who enrolls gets a LockedIn kit shipped to their door, on us, no separate purchase required.</p>
+        <ul class="merch-list">
+          <li><b>LockedIn T-Shirt</b> — soft cotton, printed logo</li>
+          <li><b>Sticker Pack</b> — laptop and notebook-ready</li>
+          <li><b>Notebook / Swag Kit</b> — for taking your project notes</li>
+        </ul>
+        <a href="#apply" class="btn btn-green">Apply &amp; Claim Your Kit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="pricing">
   <div class="wrap">
     <div class="section-head">
@@ -768,6 +810,7 @@
           <li>Sample dataset &amp; project brief access</li>
           <li>Notes, templates &amp; practice questions</li>
           <li>Completion certificate</li>
+          <li>LockedIn merch kit</li>
           <li class="dim">Live mentor sessions</li>
           <li class="dim">Community access</li>
           <li class="dim">Placement support</li>
@@ -788,6 +831,7 @@
           <li>AI-powered resume checker</li>
           <li>Internship offer &amp; completion certificate</li>
           <li>Private community &amp; peer network</li>
+          <li>LockedIn merch kit</li>
         </ul>
         <button type="button" class="btn btn-green" style="width:100%;" data-plan="live-mentor">Pay Now</button>
       </div>
@@ -802,6 +846,7 @@
           <li>Placement assistance &amp; job referrals</li>
           <li>Guest lectures &amp; industry case studies</li>
           <li>Letter of Recommendation for top performers</li>
+          <li>LockedIn merch kit</li>
         </ul>
         <button type="button" class="btn btn-outline" style="width:100%;" data-plan="career-launch">Pay Now</button>
       </div>
