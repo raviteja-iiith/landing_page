@@ -689,6 +689,45 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .form-row{grid-template-columns:1fr}
   .modal-card{padding:24px}
 }
+
+/* Wow features section */
+.wow-section{padding:80px 20px;max-width:1160px;margin:0 auto}
+.wow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.wow-card{
+  position:relative;
+  background:var(--ink);
+  border-radius:22px;
+  padding:30px 26px;
+  overflow:hidden;
+  min-height:260px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  transition:transform .35s ease, box-shadow .35s ease;
+  box-shadow:0 10px 34px rgba(26,42,26,.16);
+}
+.wow-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(26,42,26,.32)}
+.wow-card::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 25% 15%, rgba(159,232,112,.35), transparent 55%);
+  pointer-events:none;
+}
+.wow-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(159,232,112,.16);border:1px solid rgba(159,232,112,.35);
+  color:var(--green);font-family:"DM Mono",monospace;
+  font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:50px;
+  margin-bottom:auto;width:fit-content;position:relative;z-index:1;
+}
+.wow-icon{font-size:2.1rem;margin-bottom:14px;position:relative;z-index:1}
+.wow-title{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:1.2rem;font-weight:800;color:var(--white);
+  margin-bottom:8px;position:relative;z-index:1;
+}
+.wow-desc{font-size:.85rem;color:#B8C4BE;line-height:1.7;position:relative;z-index:1}
+.wow-card.wide{grid-column:span 2}
+@media(max-width:1024px){.wow-grid{grid-template-columns:1fr 1fr}.wow-card.wide{grid-column:span 2}}
+@media(max-width:640px){.wow-grid{grid-template-columns:1fr}.wow-card.wide{grid-column:span 1}}
 </style>
 </head>
 <body>
@@ -729,7 +768,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="badge-dot">✨</div>
-      Now with AI Analytics &amp; Razorpay Payments
+      Now with AI Question Papers &amp; WhatsApp Alerts
     </div>
 
     <h1 class="hero-h1 d">School management built for<br><em>every person</em> in the building.</h1>
@@ -737,12 +776,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="role-line d">
       <span class="role-prefix">Built</span>
       <span class="role-word">
-        <span class="role-text in" id="roleText">for Teachers</span>
+        <span class="role-text in" id="roleText">for Principals</span>
       </span>
     </div>
 
     <p class="hero-sub">
-      NxtStepEdu connects teachers, parents, principals and admins on one clean platform — attendance, fees, grades and communication from a single, joyful dashboard.
+      NxtStepEdu connects principals, teachers and students on one clean platform — attendance, fees, grades and communication from a single, joyful dashboard.
     </p>
 
     <div class="hero-actions">
@@ -752,10 +791,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 
     <div class="hero-trust">
       <div class="trust-av-stack">
-        <div class="trust-av ta1">AK</div>
-        <div class="trust-av ta2">PM</div>
+        <div class="trust-av ta1">SV</div>
+        <div class="trust-av ta2">KV</div>
         <div class="trust-av ta3">RS</div>
-        <div class="trust-av ta4">NR</div>
+        <div class="trust-av ta4">BP</div>
       </div>
       <div class="trust-text"><strong>17+ schools</strong> across India</div>
       <div class="trust-div"></div>
@@ -769,30 +808,22 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <div class="mq-section">
   <div style="overflow:hidden">
     <div class="mq-track">
+      <div class="mq-chip"><div class="dot-g"></div>AI Question Papers</div>
+      <div class="mq-chip"><div class="dot-g"></div>Teacher Workload Tracking</div>
+      <div class="mq-chip"><div class="dot-g"></div>Fee Management</div>
+      <div class="mq-chip"><div class="dot-g"></div>Visual Marks &amp; Graphs</div>
+      <div class="mq-chip"><div class="dot-g"></div>SMS &amp; WhatsApp Alerts</div>
       <div class="mq-chip"><div class="dot-g"></div>Live Attendance</div>
-      <div class="mq-chip"><div class="dot-g"></div>Razorpay Fee Payments</div>
-      <div class="mq-chip"><div class="dot-g"></div>Assignment Tracker</div>
-      <div class="mq-chip"><div class="dot-g"></div>AI Report Cards</div>
-      <div class="mq-chip"><div class="dot-g"></div>Mobile-First Design</div>
-      <div class="mq-chip"><div class="dot-g"></div>Push Notifications</div>
-      <div class="mq-chip"><div class="dot-g"></div>Academic Analytics</div>
-      <div class="mq-chip"><div class="dot-g"></div>Timetable Builder</div>
-      <div class="mq-chip"><div class="dot-g"></div>Parent–Teacher Chat</div>
       <div class="mq-chip"><div class="dot-g"></div>Role-Based Access</div>
-      <div class="mq-chip"><div class="dot-g"></div>AI Risk Alerts</div>
-      <div class="mq-chip"><div class="dot-g"></div>Bulk Data Import</div>
+      <div class="mq-chip"><div class="dot-g"></div>Timetable Builder</div>
+      <div class="mq-chip"><div class="dot-g"></div>AI Question Papers</div>
+      <div class="mq-chip"><div class="dot-g"></div>Teacher Workload Tracking</div>
+      <div class="mq-chip"><div class="dot-g"></div>Fee Management</div>
+      <div class="mq-chip"><div class="dot-g"></div>Visual Marks &amp; Graphs</div>
+      <div class="mq-chip"><div class="dot-g"></div>SMS &amp; WhatsApp Alerts</div>
       <div class="mq-chip"><div class="dot-g"></div>Live Attendance</div>
-      <div class="mq-chip"><div class="dot-g"></div>Razorpay Fee Payments</div>
-      <div class="mq-chip"><div class="dot-g"></div>Assignment Tracker</div>
-      <div class="mq-chip"><div class="dot-g"></div>AI Report Cards</div>
-      <div class="mq-chip"><div class="dot-g"></div>Mobile-First Design</div>
-      <div class="mq-chip"><div class="dot-g"></div>Push Notifications</div>
-      <div class="mq-chip"><div class="dot-g"></div>Academic Analytics</div>
-      <div class="mq-chip"><div class="dot-g"></div>Timetable Builder</div>
-      <div class="mq-chip"><div class="dot-g"></div>Parent–Teacher Chat</div>
       <div class="mq-chip"><div class="dot-g"></div>Role-Based Access</div>
-      <div class="mq-chip"><div class="dot-g"></div>AI Risk Alerts</div>
-      <div class="mq-chip"><div class="dot-g"></div>Bulk Data Import</div>
+      <div class="mq-chip"><div class="dot-g"></div>Timetable Builder</div>
     </div>
   </div>
 </div>
@@ -820,27 +851,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 
 <section class="section" id="roles">
   <div class="eyebrow rv">Built for Everyone</div>
-  <h2 class="section-title d rv">One system, <span style="color:var(--green-dark)">four powerful roles</span></h2>
-  <p class="section-sub rv">Each stakeholder gets a tailored experience with exactly the tools they need — nothing more, nothing less.</p>
+  <h2 class="section-title d rv">One system, <span style="color:var(--green-dark)">three powerful roles</span></h2>
+  <p class="section-sub rv">Principal, teacher and student each get a tailored experience with exactly the tools they need — nothing more, nothing less.</p>
 
   <div class="tabs-wrap rv">
-    <button class="rtab on" data-r="parent">👨‍👩‍👧 Parent</button>
+    <button class="rtab on" data-r="principal">🎓 Principal</button>
     <button class="rtab" data-r="teacher">👨‍🏫 Teacher</button>
-    <button class="rtab" data-r="principal">🎓 Principal</button>
-    <button class="rtab" data-r="admin">⚙️ Admin</button>
+    <button class="rtab" data-r="student">🧑‍🎓 Student</button>
   </div>
 
-  <div class="rc on" id="r-parent">
+  <div class="rc on" id="r-principal">
     <div class="role-info">
-      <div class="role-icon-wrap fi-g">👨‍👩‍👧</div>
-      <div class="role-title d">Parent Portal</div>
-      <div class="role-desc">Stay connected to your child's academic journey in real time. From attendance to fee payments, everything is at your fingertips.</div>
+      <div class="role-icon-wrap fi-p">🎓</div>
+      <div class="role-title d">Principal View</div>
+      <div class="role-desc">Bird's-eye visibility across every classroom, teacher, and metric. Make data-driven decisions and get AI alerts before problems escalate.</div>
       <ul class="feature-list">
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Live Attendance Tracking</strong>Real-time push when your child is marked present or absent</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>AI Report Card Summary</strong>Plain-language AI summaries of your child's performance</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Assignment Deadlines View</strong>All upcoming submissions in one clean calendar view</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Pay Fees via Razorpay</strong>UPI, cards, net banking — secure, instant, with auto-receipts</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Direct Teacher Messaging</strong>In-app chat with subject teachers; no more lost paper notes</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>School-Wide Analytics</strong>Attendance, grades, and fee collection across all grades — live</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Teacher Workload Tracking</strong>See exactly how much each teacher is working — classes, hours, load</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Total Financial Status</strong>Every rupee collected, pending and due — at your fingertips</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Timetable &amp; Exam Scheduling</strong>Conflict-free timetable builder; exam calendar auto-published</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>AI Risk Flags</strong>Proactive alerts for students at risk of failure or excess absences</div></li>
       </ul>
     </div>
     <div class="mock-screen">
@@ -848,31 +878,18 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="mdot" style="background:#ff5f57"></div>
         <div class="mdot" style="background:#febc2e"></div>
         <div class="mdot" style="background:#28c840"></div>
-        <span class="mock-title-txt">parent dashboard</span>
+        <span class="mock-title-txt">school overview</span>
       </div>
       <div class="mock-body">
         <div class="stat-row">
-          <div class="mini-stat"><div class="msn" style="color:var(--green-dark)">92%</div><div class="msl">Attendance</div></div>
-          <div class="mini-stat"><div class="msn">A+</div><div class="msl">Avg Grade</div></div>
-          <div class="mini-stat"><div class="msn" style="color:#856404">3</div><div class="msl">Pending</div></div>
+          <div class="mini-stat"><div class="msn">847</div><div class="msl">Students</div></div>
+          <div class="mini-stat"><div class="msn">52</div><div class="msl">Staff</div></div>
+          <div class="mini-stat"><div class="msn" style="color:var(--green-dark)">91%</div><div class="msl">Attend.</div></div>
         </div>
-        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace">UPCOMING ASSIGNMENTS</div>
-        <div class="data-row">
-          <div class="data-av dav1">Ma</div>
-          <div class="data-row-text"><div class="drn">Math Ch.5 Exercise</div><div class="drs">Due: Tomorrow</div></div>
-          <div class="badge-sm bs-r">Urgent</div>
-        </div>
-        <div class="data-row">
-          <div class="data-av dav2">Sc</div>
-          <div class="data-row-text"><div class="drn">Science Lab Report</div><div class="drs">Due: 3 days</div></div>
-          <div class="badge-sm bs-y">Soon</div>
-        </div>
-        <div class="pay-card">
-          <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:8px">FEE PAYMENT</div>
-          <div class="pay-row"><span class="pay-label">Tuition Fee (Q3)</span><span class="pay-val">₹12,500</span></div>
-          <div class="pay-row"><span class="pay-label">Transport Fee</span><span class="pay-val">₹2,000</span></div>
-          <button class="pay-btn">Pay via Razorpay →</button>
-        </div>
+        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace">AI RISK ALERTS</div>
+        <div class="data-row"><span style="font-size:.85rem">⚠️</span><div class="data-row-text"><div class="drn">5 students below 75% attendance</div><div class="drs">Classes 10-A, 8-B, 7-C</div></div><div class="badge-sm bs-r">High</div></div>
+        <div class="data-row"><span style="font-size:.85rem">📉</span><div class="data-row-text"><div class="drn">Math scores down 12% in Grade 9</div><div class="drs">Last 2 unit tests</div></div><div class="badge-sm bs-y">Watch</div></div>
+        <div class="data-row"><span style="font-size:.85rem">💰</span><div class="data-row-text"><div class="drn">Fee collection at 94% this month</div><div class="drs">₹8.4L of ₹9L collected</div></div><div class="badge-sm bs-g">Good</div></div>
       </div>
     </div>
   </div>
@@ -881,13 +898,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="role-info">
       <div class="role-icon-wrap fi-b">👨‍🏫</div>
       <div class="role-title d">Teacher Dashboard</div>
-      <div class="role-desc">Streamline your classroom. Mark attendance in seconds, upload assignments, grade work, and communicate with parents — all in one place.</div>
+      <div class="role-desc">Streamline your classroom. Mark attendance in seconds, generate question papers with AI, grade work, and communicate with parents — all in one place.</div>
       <ul class="feature-list">
         <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>One-Tap Bulk Attendance</strong>Mark an entire class in under 30 seconds; absentees auto-notified</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Assignment Upload &amp; Deadlines</strong>Attach PDFs, set due dates, add rubrics — students see it instantly</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>AI Question Paper Generator</strong>Full single-day exam paper generated from your syllabus in minutes</div></li>
         <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Grade Book &amp; Report Cards</strong>Enter grades; report cards auto-generate and publish to parents</div></li>
         <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Student Performance Charts</strong>Visualise class trends and spot struggling students early</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Parent Communication Log</strong>Logged in-app messages; never lose a conversation thread</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>SMS &amp; WhatsApp Updates</strong>Send attendance, marks and notices straight to parents' phones</div></li>
       </ul>
     </div>
     <div class="mock-screen">
@@ -918,17 +935,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     </div>
   </div>
 
-  <div class="rc" id="r-principal">
+  <div class="rc" id="r-student">
     <div class="role-info">
-      <div class="role-icon-wrap fi-p">🎓</div>
-      <div class="role-title d">Principal View</div>
-      <div class="role-desc">Bird's-eye visibility across every classroom, teacher, and metric. Make data-driven decisions and get AI alerts before problems escalate.</div>
+      <div class="role-icon-wrap fi-g">🧑‍🎓</div>
+      <div class="role-title d">Student Portal</div>
+      <div class="role-desc">Stay on top of your own academic journey in real time. From attendance to marks to fee status, everything is at your fingertips.</div>
       <ul class="feature-list">
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>School-Wide Analytics</strong>Attendance, grades, and fee collection across all grades — live</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Staff Performance Monitoring</strong>Track teacher punctuality, assignment rates, parent satisfaction</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Timetable &amp; Exam Scheduling</strong>Conflict-free timetable builder; exam calendar auto-published</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Board-Ready Reports</strong>CBSE compliance docs and parent letters in one click</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>AI Risk Flags</strong>Proactive alerts for students at risk of failure or excess absences</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Live Attendance Tracking</strong>Real-time view of your attendance percentage, subject-wise</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Marks in Visual Graphs</strong>See your performance trend across subjects and terms at a glance</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Assignment Deadlines View</strong>All upcoming submissions in one clean calendar view</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Fee Status at a Glance</strong>Know exactly what's paid and what's due, instantly</div></li>
+        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Direct Teacher Messaging</strong>In-app chat with subject teachers; no more lost paper notes</div></li>
       </ul>
     </div>
     <div class="mock-screen">
@@ -936,56 +953,32 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div class="mdot" style="background:#ff5f57"></div>
         <div class="mdot" style="background:#febc2e"></div>
         <div class="mdot" style="background:#28c840"></div>
-        <span class="mock-title-txt">school overview</span>
+        <span class="mock-title-txt">student dashboard</span>
       </div>
       <div class="mock-body">
         <div class="stat-row">
-          <div class="mini-stat"><div class="msn">847</div><div class="msl">Students</div></div>
-          <div class="mini-stat"><div class="msn">52</div><div class="msl">Staff</div></div>
-          <div class="mini-stat"><div class="msn" style="color:var(--green-dark)">91%</div><div class="msl">Attend.</div></div>
+          <div class="mini-stat"><div class="msn" style="color:var(--green-dark)">92%</div><div class="msl">Attendance</div></div>
+          <div class="mini-stat"><div class="msn">A+</div><div class="msl">Avg Grade</div></div>
+          <div class="mini-stat"><div class="msn" style="color:#856404">3</div><div class="msl">Pending</div></div>
         </div>
-        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace">AI RISK ALERTS</div>
-        <div class="data-row"><span style="font-size:.85rem">⚠️</span><div class="data-row-text"><div class="drn">5 students below 75% attendance</div><div class="drs">Classes 10-A, 8-B, 7-C</div></div><div class="badge-sm bs-r">High</div></div>
-        <div class="data-row"><span style="font-size:.85rem">📉</span><div class="data-row-text"><div class="drn">Math scores down 12% in Grade 9</div><div class="drs">Last 2 unit tests</div></div><div class="badge-sm bs-y">Watch</div></div>
-        <div class="data-row"><span style="font-size:.85rem">💰</span><div class="data-row-text"><div class="drn">Fee collection at 94% this month</div><div class="drs">₹8.4L of ₹9L collected</div></div><div class="badge-sm bs-g">Good</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="rc" id="r-admin">
-    <div class="role-info">
-      <div class="role-icon-wrap fi-y">⚙️</div>
-      <div class="role-title d">Admin Control</div>
-      <div class="role-desc">The command centre of your school. Manage users, configure settings, handle admissions, and keep every cog turning smoothly.</div>
-      <ul class="feature-list">
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>User &amp; Role Management</strong>Add, edit, or deactivate any user — students, teachers, parents, staff</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Bulk Data Import &amp; Export</strong>Import from Excel; export reports as PDF or CSV in one click</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Fee Structure Configuration</strong>Set up fee heads, due dates, late fines, and scholarship discounts</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Admissions &amp; Enrollment</strong>Manage applications, verify documents, assign classes automatically</div></li>
-        <li class="feature-item"><div class="fcheck">✓</div><div class="ftext"><strong>Full Audit Log</strong>Every action tracked with timestamp; granular permission controls</div></li>
-      </ul>
-    </div>
-    <div class="mock-screen">
-      <div class="mock-bar">
-        <div class="mdot" style="background:#ff5f57"></div>
-        <div class="mdot" style="background:#febc2e"></div>
-        <div class="mdot" style="background:#28c840"></div>
-        <span class="mock-title-txt">admin — user management</span>
-      </div>
-      <div class="mock-body">
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <div class="badge-sm bs-b">847 Students</div>
-          <div class="badge-sm bs-g">52 Teachers</div>
-          <div class="badge-sm bs-y">3 Admins</div>
+        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace">UPCOMING ASSIGNMENTS</div>
+        <div class="data-row">
+          <div class="data-av dav1">Ma</div>
+          <div class="data-row-text"><div class="drn">Math Ch.5 Exercise</div><div class="drs">Due: Tomorrow</div></div>
+          <div class="badge-sm bs-r">Urgent</div>
         </div>
-        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace">RECENT ACTIONS</div>
-        <div class="data-row"><span>➕</span><div class="data-row-text"><div class="drn">New student admitted</div><div class="drs">Ananya Reddy → Class 6-A</div></div><div class="badge-sm bs-g">Done</div></div>
-        <div class="data-row"><span>📤</span><div class="data-row-text"><div class="drn">Bulk fee reminder sent</div><div class="drs">124 parents via SMS</div></div><div class="badge-sm bs-b">Sent</div></div>
-        <div class="data-row"><span>🔄</span><div class="data-row-text"><div class="drn">Timetable updated</div><div class="drs">Term 2 schedule now live</div></div><div class="badge-sm bs-g">Live</div></div>
-        <div class="stat-row" style="margin-top:4px">
-          <div class="mini-stat"><div class="msn" style="color:var(--green-dark)">99.9%</div><div class="msl">Uptime</div></div>
-          <div class="mini-stat"><div class="msn">256</div><div class="msl">API/hr</div></div>
-          <div class="mini-stat"><div class="msn">0</div><div class="msl">Errors</div></div>
+        <div class="data-row">
+          <div class="data-av dav2">Sc</div>
+          <div class="data-row-text"><div class="drn">Science Lab Report</div><div class="drs">Due: 3 days</div></div>
+          <div class="badge-sm bs-y">Soon</div>
+        </div>
+        <div style="font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:4px">SUBJECT-WISE MARKS</div>
+        <div class="bar-chart">
+          <div class="bar" style="height:88%;animation-delay:.1s"></div>
+          <div class="bar" style="height:74%;animation-delay:.2s"></div>
+          <div class="bar" style="height:95%;animation-delay:.3s"></div>
+          <div class="bar" style="height:68%;animation-delay:.4s"></div>
+          <div class="bar" style="height:80%;animation-delay:.5s"></div>
         </div>
       </div>
     </div>
@@ -993,21 +986,41 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 </section>
 
 <div style="background:var(--white);background-image:radial-gradient(rgba(26,42,26,.05) 1.5px,transparent 1.5px);background-size:32px 32px">
-<section class="section" id="features">
-  <div class="eyebrow rv">Everything You Need</div>
-  <h2 class="section-title d rv">Features that <span style="color:var(--green-dark)">actually matter</span></h2>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<p class="rv" style="color:var(--muted);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;font-weight:500;letter-spacing:.01em;margin-bottom:0">because we care</p>
-  <div class="feat-grid">
-    <div class="feat-card rv d1"><div class="feat-icon fi-g">📊</div><div class="feat-title d">Real-Time Attendance</div><div class="feat-desc">Biometric-ready tracking with instant push notifications. Daily, weekly and monthly reports auto-generated for every class.</div></div>
-    <div class="feat-card rv d2"><div class="feat-icon fi-b">💰</div><div class="feat-title d">Razorpay Fee Collection</div><div class="feat-desc">UPI, credit/debit, net banking, and wallets. Automated receipts, overdue reminders, and T+2 settlement to school account.</div></div>
-    <div class="feat-card rv d3"><div class="feat-icon fi-y">🤖</div><div class="feat-title d">AI Academic Insights</div><div class="feat-desc">Flags at-risk students, summarises report cards in plain language, and suggests personalised intervention for teachers.</div></div>
-    <div class="feat-card rv d1"><div class="feat-icon fi-p">📝</div><div class="feat-title d">Assignment Tracker</div><div class="feat-desc">Teachers upload, students submit, parents track — all in one closed loop. Deadline alerts and submission analytics built in.</div></div>
-    <div class="feat-card rv d2"><div class="feat-icon fi-r">💬</div><div class="feat-title d">Parent–Teacher Connect</div><div class="feat-desc">In-app messaging, PTM scheduling, and a shared child timeline. No more missed calls or lost paper notes home.</div></div>
-    <div class="feat-card rv d3"><div class="feat-icon fi-o">📱</div><div class="feat-title d">Mobile-First Apps</div><div class="feat-desc">Fully responsive web app plus native iOS and Android apps. Works beautifully on any screen, even on 2G connections.</div></div>
-    <div class="feat-card rv d1"><div class="feat-icon fi-g">🚌</div><div class="feat-title d">Bus GPS Tracker</div><div class="feat-desc">Live transport tracking with real-time bus location, route mapping, and arrival alerts for parents and transport staff.</div></div>
-    <div class="feat-card rv d2"><div class="feat-icon fi-b">🪪</div><div class="feat-title d">RFID Cards</div><div class="feat-desc">Radio Frequency ID cards for tap-based attendance, gate entry/exit logs, and library or canteen access — all auto-synced.</div></div>
-    <div class="feat-card rv d3"><div class="feat-icon fi-p">🎓</div><div class="feat-title d">Learning Management System</div><div class="feat-desc">Digital course content, quizzes, video lessons and progress tracking — accessible to students anytime, anywhere.</div></div>
+<section class="wow-section" id="features">
+  <div class="eyebrow rv">The Wow Factor</div>
+  <h2 class="section-title d rv">Five features that make <span style="color:var(--green-dark)">principals say wow</span></h2>
+  <p class="section-sub rv">Not another checklist ERP. These are the things that get a decision-maker to sign on the spot.</p>
+  <div class="wow-grid">
+    <div class="wow-card wide rv d1">
+      <div class="wow-badge">⚡ AI-Powered</div>
+      <div class="wow-icon">🧠</div>
+      <div class="wow-title d">AI Question Paper Generator</div>
+      <div class="wow-desc">Generate a complete, exam-ready question paper for an entire single-day exam straight from the syllabus — in minutes, not hours. No more late nights before exam day.</div>
+    </div>
+    <div class="wow-card rv d2">
+      <div class="wow-badge">📊 Insight</div>
+      <div class="wow-icon">👨‍🏫</div>
+      <div class="wow-title d">Teacher Performance Tracker</div>
+      <div class="wow-desc">See exactly how much every teacher is working — classes taken, hours logged, workload balance — as clear, comparable numbers.</div>
+    </div>
+    <div class="wow-card rv d3">
+      <div class="wow-badge">💰 Finance</div>
+      <div class="wow-icon">💳</div>
+      <div class="wow-title d">Total Fee &amp; Financial Status</div>
+      <div class="wow-desc">The school's entire financial health — collected, pending, overdue — on one screen, updated live, at the principal's fingertips.</div>
+    </div>
+    <div class="wow-card rv d1">
+      <div class="wow-badge">📈 Visual</div>
+      <div class="wow-icon">📉</div>
+      <div class="wow-title d">Marks in Visual Graphs</div>
+      <div class="wow-desc">Every student's marks rendered as clean, readable graphs and trend lines — spot toppers and strugglers instantly, no spreadsheets.</div>
+    </div>
+    <div class="wow-card wide rv d2">
+      <div class="wow-badge">💬 Connected</div>
+      <div class="wow-icon">📲</div>
+      <div class="wow-title d">SMS &amp; WhatsApp Integration</div>
+      <div class="wow-desc">Attendance alerts, fee reminders, marks and notices delivered directly to parents' phones via SMS and WhatsApp — no app download needed on their end.</div>
+    </div>
   </div>
 </section>
 </div>
@@ -1015,7 +1028,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 <div class="how-wrap" id="how">
   <div class="how-inner">
     <div class="eyebrow rv">Simple Setup</div>
-    <h2 class="section-title d rv">Up and running in <span style="color:var(--green-dark)">under a week</span></h2>
+    <h2 class="section-title d rv">Up and running in <span style="color:var(--green-dark)">a single day</span></h2>
     <div class="steps-grid">
       <div class="step-connector"></div>
       <div class="step rv d1">
@@ -1026,17 +1039,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div class="step rv d2">
         <div class="step-num">2</div>
         <div class="step-title d">Import Your Data</div>
-        <div class="step-desc">Upload students, staff and parents from Excel. Our smart importer maps columns and fixes errors automatically.</div>
+        <div class="step-desc">Upload students, staff and classes from Excel. Our smart importer maps columns and fixes errors automatically.</div>
       </div>
       <div class="step rv d3">
         <div class="step-num">3</div>
         <div class="step-title d">Assign Roles &amp; Access</div>
-        <div class="step-desc">Every teacher, parent and admin gets auto-generated credentials with exactly the permissions they need.</div>
+        <div class="step-desc">Every principal, teacher and student gets auto-generated credentials with exactly the permissions they need.</div>
       </div>
       <div class="step rv d4">
         <div class="step-num">4</div>
-        <div class="step-title d">Go Live &amp; Grow</div>
-        <div class="step-desc">Start managing from day one. Our onboarding team stays with you for 30 days to ensure success.</div>
+        <div class="step-title d">Go Live — Same Day</div>
+        <div class="step-desc">Start managing from day one. Our onboarding team stays with you afterward to ensure a smooth first month.</div>
       </div>
     </div>
   </div>
@@ -1046,39 +1059,37 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div style="text-align:center;padding:0 20px 44px">
     <div class="eyebrow rv" style="justify-content:center;display:flex">Trusted by Educators</div>
     <h2 class="section-title d rv" style="text-align:center">Schools across India <span style="color:var(--green-dark)">rely on us</span></h2>
-    <p style="color:var(--slate);font-size:.95rem" class="rv">From CBSE to ICSE, state boards to international schools — NxtStepEdu powers them all.</p>
+    <p style="color:var(--slate);font-size:.95rem" class="rv">From CBSE to state boards, in cities and towns across the country — NxtStepEdu powers them all.</p>
   </div>
   <div style="overflow:hidden;margin-bottom:14px">
     <div class="mq-track" style="gap:14px;padding-bottom:4px">
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">AK</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Arun K.</div><div style="font-size:.66rem;color:var(--muted)">Principal, Delhi</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav4" style="width:30px;height:30px;font-size:.65rem">PM</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Priya M.</div><div style="font-size:.66rem;color:var(--muted)">Parent, Mumbai</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">RS</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Ravi S.</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Bengaluru</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav3" style="width:30px;height:30px;font-size:.65rem">NR</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Neha R.</div><div style="font-size:.66rem;color:var(--muted)">Admin, Chennai</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav2" style="width:30px;height:30px;font-size:.65rem">VK</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Vikram K.</div><div style="font-size:.66rem;color:var(--muted)">Principal, Hyderabad</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">SB</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Sunita B.</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Pune</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">AK</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Arun K.</div><div style="font-size:.66rem;color:var(--muted)">Principal, Delhi</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav4" style="width:30px;height:30px;font-size:.65rem">PM</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Priya M.</div><div style="font-size:.66rem;color:var(--muted)">Parent, Mumbai</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">RS</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Ravi S.</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Bengaluru</div></div></div>
-      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav2" style="width:30px;height:30px;font-size:.65rem">VK</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Vikram K.</div><div style="font-size:.66rem;color:var(--muted)">Principal, Hyderabad</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">RP</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Ravi Prasad</div><div style="font-size:.66rem;color:var(--muted)">Principal, Vijayawada</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav4" style="width:30px;height:30px;font-size:.65rem">LN</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Lakshmi Naidu</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Guntur</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">KR</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Kiran Reddy</div><div style="font-size:.66rem;color:var(--muted)">Principal, Warangal</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav3" style="width:30px;height:30px;font-size:.65rem">SD</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Sudha Devi</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Vizag</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav2" style="width:30px;height:30px;font-size:.65rem">VR</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Venkat Rao</div><div style="font-size:.66rem;color:var(--muted)">Principal, Nellore</div></div></div>
+      <div style="display:flex;align-items:center;gap:9px;background:var(--white);border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;flex-shrink:0"><div class="data-av dav1" style="width:30px;height:30px;font-size:.65rem">AM</div><div><div style="font-size:.78rem;font-weight:700;color:var(--ink)">Anitha Murthy</div><div style="font-size:.66rem;color:var(--muted)">Teacher, Karimnagar</div></div></div>
     </div>
   </div>
   <div style="overflow:hidden;padding-bottom:80px">
     <div class="mq-track mq-track-r" style="gap:12px">
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏫 Delhi Public School</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">📚 Kendriya Vidyalaya</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎓 Ryan International</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">✏️ Narayana Schools</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🌟 DAV Public School</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏆 Podar Education</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎯 Sri Chaitanya</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🔬 Vidya Niketan</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏫 Silver Oaks School</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏫 Delhi Public School</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">📚 Kendriya Vidyalaya</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎓 Ryan International</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">✏️ Narayana Schools</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🌟 DAV Public School</div>
-      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎯 Sri Chaitanya</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">📖 Sri Vidyanjali Vidyalayam, Vijayawada</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏫 Bhashyam Public School, Guntur</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎓 Vignan Vidya Niketan, Vizag</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏛️ Kakatiya Public School, Warangal</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">📚 Nalanda Vidya Niketan, Kurnool</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🕉️ Saraswathi Sishu Mandir, Rajahmundry</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🎯 Sri Sai Vidya Bhavan, Nellore</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">✏️ Prakash Vidya Niketan, Karimnagar</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🌟 Vasavi Public School, Nizamabad</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏆 Gowtham Model High School, Tirupati</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏫 St. Xavier's High School</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🌿 Greenwood International School</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🌊 The Riverside School</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🍁 Oakridge Academy</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🍁 Maple Leaf Public School</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🇮🇳 Bal Bharati Public School, Delhi</div>
+      <div style="background:var(--white);border:1.5px solid var(--border);padding:10px 22px;border-radius:50px;font-size:.875rem;font-weight:600;color:var(--slate);white-space:nowrap;flex-shrink:0">🏔️ DAV Senior Secondary School, Chandigarh</div>
     </div>
   </div>
 </div>
@@ -1087,7 +1098,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div style="max-width:1100px;margin:0 auto">
     <div class="eyebrow rv" style="justify-content:center;display:flex">See It In Action</div>
     <h2 class="section-title d rv" style="text-align:center">The app your school <span style="color:var(--green-dark)">deserves</span></h2>
-    <p class="rv" style="color:var(--slate);font-size:.95rem;margin-bottom:40px">Attendance, fees, report cards and assignments — all in one beautiful mobile experience.</p>
+    <p class="rv" style="color:var(--slate);font-size:.95rem;margin-bottom:40px">Attendance, fees, marks and question papers — all in one beautiful mobile experience.</p>
     <img
       src="apppreview.jpeg"
       alt="NxtStepEdu app preview"
@@ -1103,13 +1114,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <h2 class="section-title d rv">What educators <span style="color:var(--green-dark)">say about us</span></h2>
     <div style="overflow:hidden;margin-top:44px">
       <div class="mq-track" style="gap:18px;align-items:stretch">
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"NxtStepEdu transformed how we run our school. The attendance system alone saves our teachers 45 minutes every day. Parents are far more engaged now."</p><div class="tcard-author"><div class="tav dav1">AK</div><div><div class="tan">Arun Kumar</div><div class="tar">Principal, DPS Noida</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"As a parent I can finally see my daughter's attendance, grades and assignments without calling the school. The Razorpay integration is a genuine lifesaver."</p><div class="tcard-author"><div class="tav dav4">PM</div><div><div class="tan">Priya Mehta</div><div class="tar">Parent, Mumbai</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"I mark attendance for 40 students in under a minute now. The assignment upload feature has made homework management actually enjoyable."</p><div class="tcard-author"><div class="tav dav1">RS</div><div><div class="tan">Ravi Shankar</div><div class="tar">Math Teacher, Bengaluru</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"The AI risk alerts are incredible. We identified 3 students with declining attendance before it became a serious problem. This tool genuinely helps kids."</p><div class="tcard-author"><div class="tav dav3">SR</div><div><div class="tan">Sunita Rao</div><div class="tar">Principal, Hyderabad</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"Fee collection went from 72% to 96% in just 2 months after switching. Automated reminders and Razorpay work like magic together."</p><div class="tcard-author"><div class="tav dav2">VK</div><div><div class="tan">Vijay Krishnan</div><div class="tar">Administrator, Chennai</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"NxtStepEdu transformed how we run our school. The attendance system alone saves our teachers 45 minutes every day. Parents are far more engaged now."</p><div class="tcard-author"><div class="tav dav1">AK</div><div><div class="tan">Arun Kumar</div><div class="tar">Principal, DPS Noida</div></div></div></div>
-        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"Fee collection went from 72% to 96% in just 2 months after switching. Automated reminders and Razorpay work like magic together."</p><div class="tcard-author"><div class="tav dav2">VK</div><div><div class="tan">Vijay Krishnan</div><div class="tar">Administrator, Chennai</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"NxtStepEdu transformed how we run our school. The AI question paper generator alone saves our teachers hours before every exam. A genuine wow moment for us."</p><div class="tcard-author"><div class="tav dav1">RP</div><div><div class="tan">Ravi Prasad</div><div class="tar">Principal, Vijayawada</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"As a student I can finally see my marks as clean graphs and track my own attendance without asking anyone. It just makes sense."</p><div class="tcard-author"><div class="tav dav4">SM</div><div><div class="tan">Sneha Mehta</div><div class="tar">Student, Class 10</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"I mark attendance for 40 students in under a minute now, and WhatsApp alerts go straight to parents. Homework and exams feel effortless."</p><div class="tcard-author"><div class="tav dav1">LN</div><div><div class="tan">Lakshmi Naidu</div><div class="tar">Teacher, Guntur</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"The teacher workload tracker is incredible. For the first time I can see exactly how much every teacher is working and balance it fairly."</p><div class="tcard-author"><div class="tav dav3">KR</div><div><div class="tan">Kiran Reddy</div><div class="tar">Principal, Warangal</div></div></div></div>
+        <div class="tcard"><div class="tcard-stars"><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div><div class="star">★</div></div><p class="tcard-text">"Fee collection went from 72% to 96% in just 2 months after switching. Seeing our entire financial status on one screen changed how we plan."</p><div class="tcard-author"><div class="tav dav2">VR</div><div><div class="tan">Venkat Rao</div><div class="tar">Principal, Nellore</div></div></div></div>
       </div>
     </div>
   </div>
@@ -1120,11 +1129,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="eyebrow rv" style="display:flex;justify-content:center">FAQs</div>
   <h2 class="section-title d rv" style="text-align:center">Common questions <span style="color:var(--green-dark)">answered</span></h2>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">How do I get started with NxtStepEdu?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Getting started is easy — book a personalised demo with our team and we will set up your school, import your existing data, and have you live on the platform within a day. Pricing plans are tailored to your school size; contact us for a custom quote.</div></div></div>
-    <div class="faq-item"><div class="faq-q">How does the Razorpay fee payment work?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Parents receive payment requests inside the app. They can pay via UPI, credit/debit cards, net banking, or Razorpay wallet. Payments reflect instantly in your admin dashboard; automated receipts are sent to parents; settlements happen T+2 days to your school's bank account.</div></div></div>
+    <div class="faq-item"><div class="faq-q">How do I get started with NxtStepEdu?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Getting started is easy — book a personalised demo with our team and we will set up your school, import your existing data, and have you live on the platform within a single day. Pricing plans are tailored to your school size; contact us for a custom quote.</div></div></div>
+    <div class="faq-item"><div class="faq-q">How does the AI question paper generator work?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Teachers select the subject, chapters and difficulty level, and the AI generates a complete, exam-ready question paper for a single-day exam in minutes. Papers can be edited before finalising and printing.</div></div></div>
     <div class="faq-item"><div class="faq-q">Can we migrate data from our existing system?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Absolutely. NxtStepEdu supports migration from Excel, Google Sheets, and most common school ERP software. Our onboarding team handles migration at no extra cost and verifies data accuracy before you go live.</div></div></div>
     <div class="faq-item"><div class="faq-q">Is student data stored securely?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Data is encrypted at rest (AES-256) and in transit (TLS 1.3). We host on AWS Mumbai data centres, ensuring data residency in India. We comply with DPDPA guidelines and never share data with third parties.</div></div></div>
-    <div class="faq-item"><div class="faq-q">Does it work on mobile phones?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Yes. NxtStepEdu is fully responsive and runs on any modern browser. We also offer native iOS and Android apps optimised for low-bandwidth conditions — accessible across urban and rural India alike.</div></div></div>
+    <div class="faq-item"><div class="faq-q">Does it work on mobile phones?<div class="faq-toggle">+</div></div><div class="faq-ans"><div class="faq-ans-inner">Yes. NxtStepEdu is fully responsive and runs on any modern browser. We also offer native iOS and Android apps optimised for low-bandwidth conditions — accessible across urban and rural India alike, with SMS and WhatsApp alerts reaching parents even without the app.</div></div></div>
   </div>
 </section>
 </div>
@@ -1134,7 +1143,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="cta-inner">
     <div class="cta-badge">GET STARTED TODAY</div>
     <h2 class="cta-title d">Ready to modernise<br>your school? </h2>
-    <p class="cta-sub">Join 17+ schools across India. Full setup in under a week. No IT team required.</p>
+    <p class="cta-sub">Join 17+ schools across India. Full setup in a single day. No IT team required.</p>
     <div class="cta-acts">
       <button class="btn-cta-p" onclick="openDemoModal()">Schedule a Demo →</button>
     </div>
@@ -1182,7 +1191,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         </div>
         <div class="form-group">
           <label class="form-label">School Name</label>
-          <input class="form-input" type="text" placeholder="e.g. Delhi Public School" required>
+          <input class="form-input" type="text" placeholder="e.g. Sri Vidyanjali Vidyalayam" required>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -1277,7 +1286,7 @@ const cnt=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll("[data-target]").forEach(el=>cnt.observe(el));
 
-const roles=["for Teachers","for Parents","for Principals","for Admins"];
+const roles=["for Principals","for Teachers","for Students"];
 let ri=0;
 const roleEl=document.getElementById("roleText");
 setInterval(()=>{
