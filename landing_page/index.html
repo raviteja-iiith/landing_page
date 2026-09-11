@@ -451,63 +451,44 @@ nav.on{
 .feat-title{font-family:"Plus Jakarta Sans",sans-serif;font-size:.95rem;font-weight:700;margin-bottom:7px;color:var(--ink)}
 .feat-desc{font-size:.84rem;color:var(--slate);line-height:1.7}
 
-/* Wow Factor — Apple-style feature showcase */
-.wow-section{padding:80px 20px 40px;max-width:1160px;margin:0 auto}
-.wow-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:48px}
-.wow-card{
-  position:relative;
-  grid-column:span 3;
-  background:linear-gradient(160deg,#20301F,#101A10);
-  border-radius:24px;
-  padding:36px 32px;
-  min-height:280px;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  overflow:hidden;
-  isolation:isolate;
-  transition:transform .35s cubic-bezier(.22,1,.36,1);
-}
-.wow-card:hover{transform:translateY(-6px)}
-.wow-card.large{grid-column:span 6;min-height:320px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px;padding:44px 44px}
-.wow-glow{
-  position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(560px 320px at 85% 10%,rgba(159,232,112,.28),transparent 65%);
-  pointer-events:none;
-}
-.wow-tag{
-  display:inline-flex;align-self:flex-start;
-  font-size:.72rem;font-weight:600;
-  color:var(--green);
-  background:rgba(159,232,112,.14);
-  border:1px solid rgba(159,232,112,.3);
-  padding:5px 12px;border-radius:50px;
-  margin-bottom:auto;
-}
-.wow-icon{
-  width:56px;height:56px;border-radius:16px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
+/* Wow Factor — 3D coverflow image carousel */
+.wow-section{padding:80px 20px 30px;max-width:1160px;margin:0 auto}
+.fc-wrap{margin-top:56px}
+.fc-stage{
+  position:relative;height:400px;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;margin-bottom:18px;
+  perspective:1500px;
 }
-.wow-title{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1.35rem;font-weight:800;color:var(--white);
-  margin-bottom:8px;letter-spacing:-.01em;
-}
-.wow-desc{font-size:.88rem;color:#B8C4B4;line-height:1.7;max-width:420px}
-.wow-visual{
-  border-radius:18px;background:rgba(255,255,255,.05);
+.fc-card{
+  position:absolute;top:50%;left:50%;
+  width:220px;height:290px;
+  margin:-145px 0 0 -110px;
+  border-radius:20px;overflow:hidden;
+  background:linear-gradient(160deg,#20301F,#101A10);
   border:1px solid rgba(255,255,255,.1);
-  min-height:180px;padding:18px;
-  display:flex;flex-direction:column;gap:8px;justify-content:center;
+  box-shadow:0 24px 55px rgba(26,42,26,.28);
+  cursor:pointer;
+  transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .6s ease,box-shadow .6s;
 }
-.wow-line{height:8px;border-radius:5px;background:rgba(255,255,255,.12)}
-.wow-line.g{background:var(--green);width:62%}
-.wow-line.short{width:40%}
+.fc-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.fc-card.active{cursor:default;box-shadow:0 30px 70px rgba(26,42,26,.35)}
+.fc-glow{position:absolute;inset:0;background:radial-gradient(220px 160px at 80% 0%,rgba(159,232,112,.35),transparent 65%);pointer-events:none}
+.fc-caption{
+  position:absolute;left:0;right:0;bottom:0;padding:18px 18px 16px;
+  background:linear-gradient(0deg,rgba(8,14,8,.92),rgba(8,14,8,.1) 75%,transparent);
+  color:#fff;opacity:0;transform:translateY(6px);
+  transition:opacity .4s ease,transform .4s ease;
+}
+.fc-card.active .fc-caption{opacity:1;transform:translateY(0)}
+.fc-tag2{display:inline-flex;font-size:.68rem;font-weight:600;color:var(--green);background:rgba(159,232,112,.16);border:1px solid rgba(159,232,112,.32);padding:3px 10px;border-radius:50px;margin-bottom:9px}
+.fc-title2{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:1.02rem;margin-bottom:5px;letter-spacing:-.01em}
+.fc-desc2{font-size:.78rem;color:#C4CFC0;line-height:1.55}
+.fc-dots{display:flex;justify-content:center;gap:9px;margin-top:32px}
+.fc-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);border:none;padding:0;transition:all .25s ease;cursor:pointer}
+.fc-dot.on{background:var(--green-dark);width:24px;border-radius:5px}
 @media(max-width:860px){
-  .wow-grid{grid-template-columns:1fr}
-  .wow-card{grid-column:span 1!important}
-  .wow-card.large{grid-template-columns:1fr;padding:32px 26px}
+  .fc-stage{height:340px}
+  .fc-card{width:180px;height:240px;margin:-120px 0 0 -90px}
 }
 
 .how-wrap{padding:80px 20px;background:var(--white);background-image:linear-gradient(rgba(159,232,112,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(159,232,112,.08) 1px,transparent 1px),linear-gradient(rgba(159,232,112,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(159,232,112,.04) 1px,transparent 1px);background-size:80px 80px,80px 80px,20px 20px,20px 20px}
@@ -574,14 +555,49 @@ nav.on{
 .btn-cta-o{padding:14px 32px;border-radius:50px;font-size:.95rem;font-weight:700;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.2)!important;font-family:"Plus Jakarta Sans",sans-serif;transition:all .22s}
 .btn-cta-o:hover{border-color:rgba(255,255,255,.5)!important;background:rgba(255,255,255,.06)}
 
-footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:40px 20px;max-width:100%}
-.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:"Plus Jakarta Sans",sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);display:flex;align-items:center;gap:9px}
-.footer-logo-mark{width:32px;height:32px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-.footer-copy{font-size:.82rem;color:#6B7A8A;margin-top:4px}
-.footer-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
-.footer-links a{font-size:.84rem;color:#6B7A8A;transition:color .2s}
-.footer-links a:hover{color:var(--green)}
+footer{background:var(--ink);padding:0}
+.footer-wrap{padding:70px 20px 44px;background:var(--ink)}
+.footer-glass{
+  max-width:1180px;margin:0 auto;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#26362A 0%,#14201A 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:46px 48px 26px;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
+}
+.footer-glass::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(520px 300px at 88% -10%,rgba(159,232,112,.22),transparent 65%);
+}
+.footer-top{position:relative;z-index:1;display:flex;justify-content:space-between;gap:52px;flex-wrap:wrap;padding-bottom:34px}
+.footer-brand{max-width:300px}
+.footer-logo{font-family:"Plus Jakarta Sans",sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.footer-logo-mark{width:32px;height:32px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.footer-tagline{font-size:.86rem;color:#9CAA9C;line-height:1.65;margin-bottom:22px}
+.footer-subscribe{display:flex;gap:8px;max-width:320px}
+.footer-subscribe input{flex:1;min-width:0;padding:11px 16px;border-radius:50px;border:1.5px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);font-size:.82rem;color:var(--white);outline:none;transition:border-color .2s}
+.footer-subscribe input::placeholder{color:#7C8C7C}
+.footer-subscribe input:focus{border-color:var(--green)}
+.footer-subscribe button{background:var(--green);color:var(--ink);border:none;padding:11px 20px;border-radius:50px;font-size:.82rem;font-weight:700;white-space:nowrap;transition:all .2s}
+.footer-subscribe button:hover{background:#8fe05a;transform:translateY(-1px)}
+.footer-cols{position:relative;z-index:1;display:flex;gap:52px;flex-wrap:wrap}
+.footer-col h4{font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.09em;color:#6B7A6B;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-col a{font-size:.85rem;color:#B8C4B4;transition:color .2s}
+.footer-col a:hover{color:var(--green)}
+.footer-divider{position:relative;z-index:1;height:1px;background:rgba(255,255,255,.08)}
+.footer-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:14px}
+.footer-copy{font-size:.8rem;color:#6B7A6B}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#B8C4B4;transition:all .2s}
+.footer-social a:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.footer-social svg{width:15px;height:15px}
+@media(max-width:640px){
+  .footer-glass{padding:36px 24px 22px}
+  .footer-top{flex-direction:column;gap:32px}
+  .footer-cols{gap:32px 40px}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
 
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .rv.vis{opacity:1;transform:translateY(0)}
@@ -614,9 +630,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .hero-trust{flex-direction:row;justify-content:center;gap:10px}
   .trust-div{display:none}
   .hero-trust{row-gap:8px}
-  footer{padding:28px 16px}
-  .footer-inner{flex-direction:column;text-align:center;align-items:center}
-  .footer-links{justify-content:center}
   .cta-acts{flex-direction:column;align-items:center}
   .btn-cta-p,.btn-cta-o{width:100%;max-width:300px}
   .role-info{padding:20px}
@@ -627,7 +640,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   .testi-inner{padding:0 16px}
   .stats-section{padding:48px 16px}
   .wow-section{padding:56px 16px 24px}
-  .wow-card,.wow-card.large{padding:26px 22px}
 }
 
 @media(max-width:420px){
@@ -990,54 +1002,35 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <h2 class="section-title d rv">Five features that make principals say <span style="color:var(--green-dark)">wow</span></h2>
   <p class="section-sub rv">Not another checklist ERP. These are the things that get a decision-maker to sign on the spot.</p>
 
-  <div class="wow-grid">
-    <div class="wow-card large rv d1">
-      <div class="wow-glow"></div>
-      <div>
-        <span class="wow-tag">⚡ AI-Powered</span>
-        <div class="wow-icon">🧠</div>
-        <div class="wow-title d">AI Question Paper Generator</div>
-        <div class="wow-desc">Generate a complete, exam-ready question paper for an entire single-day exam straight from the syllabus — in minutes, not hours. No more late nights before exam day.</div>
+  <div class="fc-wrap rv">
+    <div class="fc-stage" id="fcStage">
+      <div class="fc-card" data-i="0" data-tag="⚡ AI-Powered" data-title="AI Question Paper Generator" data-desc="A complete, exam-ready paper straight from the syllabus — in minutes, not hours.">
+        <img src="https://picsum.photos/id/1076/440/580" alt="AI Question Paper Generator">
+        <div class="fc-glow"></div>
+        <div class="fc-caption"><span class="fc-tag2">⚡ AI-Powered</span><div class="fc-title2 d">AI Question Paper Generator</div><div class="fc-desc2">A complete, exam-ready paper straight from the syllabus — in minutes, not hours.</div></div>
       </div>
-      <div class="wow-visual">
-        <div class="wow-line g"></div>
-        <div class="wow-line"></div>
-        <div class="wow-line short"></div>
-        <div class="wow-line" style="width:80%"></div>
+      <div class="fc-card" data-i="1" data-tag="📊 Insight" data-title="Teacher Performance Tracker" data-desc="Classes taken, hours logged, workload balance — as clear, comparable numbers.">
+        <img src="https://picsum.photos/id/180/440/580" alt="Teacher Performance Tracker">
+        <div class="fc-glow"></div>
+        <div class="fc-caption"><span class="fc-tag2">📊 Insight</span><div class="fc-title2 d">Teacher Performance Tracker</div><div class="fc-desc2">Classes taken, hours logged, workload balance — as clear, comparable numbers.</div></div>
+      </div>
+      <div class="fc-card" data-i="2" data-tag="💰 Finance" data-title="Total Fee &amp; Financial Status" data-desc="The school's entire financial health — collected, pending, overdue — updated live.">
+        <img src="https://picsum.photos/id/60/440/580" alt="Total Fee and Financial Status">
+        <div class="fc-glow"></div>
+        <div class="fc-caption"><span class="fc-tag2">💰 Finance</span><div class="fc-title2 d">Total Fee &amp; Financial Status</div><div class="fc-desc2">The school's entire financial health — collected, pending, overdue — updated live.</div></div>
+      </div>
+      <div class="fc-card" data-i="3" data-tag="📈 Visual" data-title="Marks in Visual Graphs" data-desc="Every student's marks as clean, readable graphs — spot toppers and strugglers instantly.">
+        <img src="https://picsum.photos/id/201/440/580" alt="Marks in Visual Graphs">
+        <div class="fc-glow"></div>
+        <div class="fc-caption"><span class="fc-tag2">📈 Visual</span><div class="fc-title2 d">Marks in Visual Graphs</div><div class="fc-desc2">Every student's marks as clean, readable graphs — spot toppers and strugglers instantly.</div></div>
+      </div>
+      <div class="fc-card" data-i="4" data-tag="💬 Connected" data-title="SMS &amp; WhatsApp Integration" data-desc="Attendance alerts, fee reminders and notices delivered straight to parents' phones.">
+        <img src="https://picsum.photos/id/338/440/580" alt="SMS and WhatsApp Integration">
+        <div class="fc-glow"></div>
+        <div class="fc-caption"><span class="fc-tag2">💬 Connected</span><div class="fc-title2 d">SMS &amp; WhatsApp Integration</div><div class="fc-desc2">Attendance alerts, fee reminders and notices delivered straight to parents' phones.</div></div>
       </div>
     </div>
-
-    <div class="wow-card rv d2">
-      <div class="wow-glow"></div>
-      <span class="wow-tag">📊 Insight</span>
-      <div class="wow-icon">👨‍🏫</div>
-      <div class="wow-title d">Teacher Performance Tracker</div>
-      <div class="wow-desc">See exactly how much every teacher is working — classes taken, hours logged, workload balance — as clear, comparable numbers.</div>
-    </div>
-
-    <div class="wow-card rv d3">
-      <div class="wow-glow"></div>
-      <span class="wow-tag">💰 Finance</span>
-      <div class="wow-icon">💳</div>
-      <div class="wow-title d">Total Fee &amp; Financial Status</div>
-      <div class="wow-desc">The school's entire financial health — collected, pending, overdue — on one screen, updated live, at the principal's fingertips.</div>
-    </div>
-
-    <div class="wow-card rv d4">
-      <div class="wow-glow"></div>
-      <span class="wow-tag">📈 Visual</span>
-      <div class="wow-icon">📉</div>
-      <div class="wow-title d">Marks in Visual Graphs</div>
-      <div class="wow-desc">Every student's marks rendered as clean, readable graphs and trend lines — spot toppers and strugglers instantly, no spreadsheets.</div>
-    </div>
-
-    <div class="wow-card rv d5">
-      <div class="wow-glow"></div>
-      <span class="wow-tag">💬 Connected</span>
-      <div class="wow-icon">📲</div>
-      <div class="wow-title d">SMS &amp; WhatsApp Integration</div>
-      <div class="wow-desc">Attendance alerts, fee reminders, marks and notices delivered directly to parents' phones via SMS and WhatsApp — no app download needed on their end.</div>
-    </div>
+    <div class="fc-dots" id="fcDots"></div>
   </div>
 </section>
 
@@ -1164,7 +1157,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 </div>
 
 <div class="faq-section-wrap">
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="eyebrow rv" style="display:flex;justify-content:center">FAQs</div>
   <h2 class="section-title d rv" style="text-align:center">Common questions <span style="color:var(--green-dark)">answered</span></h2>
   <div class="faq-list">
@@ -1190,19 +1183,58 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">
-        <div class="footer-logo-mark">📚</div>
-        NxtStepEdu
+<div class="footer-wrap">
+  <div class="footer-glass">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-logo-mark">📚</div>NxtStepEdu</div>
+        <p class="footer-tagline">Smart ERP for Indian schools — built with care for principals, teachers and students who love simplicity.</p>
+        <form class="footer-subscribe" onsubmit="return false">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
-      <div class="footer-copy" style="margin-top:6px">© 2025 NxtStepEdu. Built for Indian schools.</div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#wow">Highlights</a></li>
+            <li><a href="#features">Why Us</a></li>
+            <li><a href="#roles">Roles</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <ul class="footer-links">
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="terms.html">Terms</a></li>
-    </ul>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 NxtStepEdu. Built for Indian schools.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.5 22H1.3l8.1-9.3L1 2h7.2l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23H.24V8.25zM8.24 8.25h4.31v2.01h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.5v-6.4c0-1.53-.03-3.5-2.13-3.5-2.14 0-2.47 1.67-2.47 3.39V23h-4.5V8.25z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C17 2.5 12 2.5 12 2.5h-.01s-5 0-8.2.34c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.25 8.13.25 10.06v1.87c0 1.93.25 3.86.25 3.86s.23 1.64.93 2.36c.9.95 2.08.92 2.6 1.02 1.9.18 8 .24 8 .24s5.01-.01 8.21-.35c.46-.05 1.46-.06 2.36-1 .7-.72.94-2.36.94-2.36s.25-1.93.25-3.86v-1.87c0-1.93-.25-3.86-.25-3.86zM9.75 14.7V7.9l6.5 3.4-6.5 3.4z"/></svg></a>
+      </div>
+    </div>
   </div>
+</div>
 </footer>
 
 <div class="modal-overlay" id="demoModal">
@@ -1340,6 +1372,60 @@ setInterval(()=>{
     roleEl.classList.add("in");
   },400);
 },2800);
+
+(function(){
+  const stage=document.getElementById("fcStage");
+  if(!stage)return;
+  const cards=[...stage.querySelectorAll(".fc-card")];
+  const dotsWrap=document.getElementById("fcDots");
+  const total=cards.length;
+  let active=0,timer;
+
+  cards.forEach((c,i)=>{
+    const d=document.createElement("button");
+    d.className="fc-dot"+(i===0?" on":"");
+    d.setAttribute("aria-label","Show feature "+(i+1));
+    d.addEventListener("click",()=>{active=i;render();reset();});
+    dotsWrap.appendChild(d);
+    c.addEventListener("click",()=>{active=i;render();reset();});
+  });
+  const dots=[...dotsWrap.children];
+
+  const layout={
+    0:{x:0,z:0,ry:0,scale:1,op:1,zi:5},
+    1:{x:185,z:-140,ry:-32,scale:.78,op:.85,zi:4},
+    "-1":{x:-185,z:-140,ry:32,scale:.78,op:.85,zi:4},
+    2:{x:330,z:-280,ry:-42,scale:.58,op:.45,zi:3},
+    "-2":{x:-330,z:-280,ry:42,scale:.58,op:.45,zi:3}
+  };
+
+  function offsetOf(i){
+    let diff=i-active;
+    if(diff>total/2)diff-=total;
+    if(diff<-total/2)diff+=total;
+    return diff;
+  }
+
+  function render(){
+    cards.forEach((c,i)=>{
+      const off=offsetOf(i);
+      const L=layout[off]||{x:0,z:-400,ry:0,scale:.4,op:0,zi:1};
+      c.style.transform=`translate(-50%,-50%) translate3d(${L.x}px,0,${L.z}px) rotateY(${L.ry}deg) scale(${L.scale})`;
+      c.style.left="50%";c.style.top="50%";c.style.margin="0";
+      c.style.opacity=L.op;c.style.zIndex=L.zi;
+      c.classList.toggle("active",off===0);
+    });
+    dots.forEach((d,i)=>d.classList.toggle("on",i===active));
+  }
+
+  function reset(){
+    clearInterval(timer);
+    timer=setInterval(()=>{active=(active+1)%total;render();},3800);
+  }
+
+  render();
+  reset();
+})();
 
 document.querySelectorAll("a[href^='#']").forEach(a=>{
   a.addEventListener("click",e=>{
